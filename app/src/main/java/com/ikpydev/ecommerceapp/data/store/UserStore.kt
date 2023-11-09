@@ -8,8 +8,9 @@ import com.google.gson.Gson
 import com.ikpydev.ecommerceapp.data.api.auth.dto.UserDto
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class UserStore(private val dataStore: DataStore<Preferences>, private val gson: Gson) {
+class UserStore @Inject constructor(private val dataStore: DataStore<Preferences>, private val gson: Gson) {
 
     private val key = stringPreferencesKey("user")
 

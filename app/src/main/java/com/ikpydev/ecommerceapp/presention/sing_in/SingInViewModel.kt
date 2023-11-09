@@ -5,12 +5,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ikpydev.ecommerceapp.domain.repo.AuthRepository
 import com.ikpydev.ecommerceapp.utils.SingleLiveEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class SingInViewModel(private val authRepository: AuthRepository) : ViewModel() {
+@HiltViewModel
+class SingInViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
 
     val loading = MutableLiveData(false)
     val event = SingleLiveEvent<Event>()

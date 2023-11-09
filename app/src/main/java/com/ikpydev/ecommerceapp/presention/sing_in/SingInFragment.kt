@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.SingInFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SingInFragment : Fragment() {
 
     private lateinit var binding: SingInFragmentBinding

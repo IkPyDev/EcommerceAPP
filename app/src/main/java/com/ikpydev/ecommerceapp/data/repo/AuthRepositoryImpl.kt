@@ -6,8 +6,9 @@ import com.ikpydev.ecommerceapp.data.store.TokenStore
 import com.ikpydev.ecommerceapp.data.store.UserStore
 import com.ikpydev.ecommerceapp.domain.module.User
 import com.ikpydev.ecommerceapp.domain.repo.AuthRepository
+import javax.inject.Inject
 
-class AuthRepositoryImpl(
+class AuthRepositoryImpl @Inject constructor(
     private val authApi: AuthApi,
     private val tokenStore: TokenStore,
     private val userStore: UserStore

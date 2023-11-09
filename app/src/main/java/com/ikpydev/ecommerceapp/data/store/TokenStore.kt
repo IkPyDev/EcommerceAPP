@@ -6,8 +6,9 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class TokenStore(private val dataStore: DataStore<Preferences>) {
+class TokenStore @Inject constructor(private val dataStore: DataStore<Preferences>) {
 
     private val key = stringPreferencesKey("token")
 

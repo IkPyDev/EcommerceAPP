@@ -1,4 +1,8 @@
 package com.ikpydev.ecommerceapp.app
 
-object AppModule {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+object AppModule:Application() {
 }
