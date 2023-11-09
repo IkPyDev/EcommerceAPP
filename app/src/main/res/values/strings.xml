@@ -3,4 +3,5 @@
     <string name="connect_error">Connetion Error</string>
     <string name="Error">"Error "</string>
     <string name="InvalidEror">Invalid Cridetalis\n</string>
+    <string name="fragment_onboarding_next">NEXT</string>
 </resources>
