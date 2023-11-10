@@ -6,42 +6,50 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
+        android:layout_height="0dp"
+        android:layout_marginBottom="28dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_backgound"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/onboarding_page_0" />
+        tools:src="@drawable/onboarding_image_0" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="28dp"
-        android:layout_marginTop="28dp"
+
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/bold"
         android:text="Welcome to LokMart!\nGrocery Applications"
         android:textAlignment="center"
-        android:fontFamily="@font/bold"
         android:textColor="@color/dark_text"
         android:textSize="22sp"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        app:layout_constraintBottom_toTopOf="@id/description" />
 
     <TextView
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/description"
-        app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginHorizontal="64dp"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/reguler"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore"
+
         android:textAlignment="center"
-        android:fontFamily="@font/reguler"/>
-
-
-
-
-
-
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

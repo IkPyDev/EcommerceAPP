@@ -4,9 +4,9 @@
     <string name="Error">"Error "</string>
     <string name="InvalidEror">Invalid Cridetalis\n</string>
     <string name="fragment_onboarding_next">NEXT</string>
-    <string name="onboarding_title_0">Welcome to LokMart!\\nGrocery Applications</string>
+    <string name="onboarding_title_0">Welcome to LokMart!\nGrocery Applications</string>
     <string name="onboarding_description_0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</string>
-    <string name="onboarding_title_1">Best Quality and\\nFast Delivery!</string>
+    <string name="onboarding_title_1">Best Quality and\nFast Delivery!</string>
     <string name="onboarding_description_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</string>
     <string name="onboarding_getstartet">GET STARTED</string>
 </resources>
