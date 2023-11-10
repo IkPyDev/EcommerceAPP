@@ -3,16 +3,17 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
     namespace 'com.ikpydev.ecommerceapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.ikpydev.ecommerceapp"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -43,7 +44,7 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.8.0'
 
     // retfofit and gson add
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
@@ -55,8 +56,10 @@ dependencies {
 
     // add Hilt
 
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation 'com.google.dagger:hilt-android:2.48.1'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.48.1'
+
+    kapt 'com.google.dagger:hilt-compiler:2.48.1'
 
 
     //add Navigasiya Fragment
@@ -64,6 +67,15 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //indicator add
+    implementation 'com.github.zhpanvip:viewpagerindicator:1.2.3'
+
+    //add glide
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+    implementation 'com.google.android.material:material:1.1.0-alpha08'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-beta02'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
@@ -75,4 +87,7 @@ dependencies {
 
 kapt {
     correctErrorTypes true
+}
+hilt {
+    enableAggregatingTask = true
 }

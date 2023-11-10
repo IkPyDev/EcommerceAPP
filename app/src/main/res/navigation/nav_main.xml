@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main.xml"
-    app:startDestination="@id/singInFragment">
+    app:startDestination="@id/onboardingFragment">
 
     <fragment
         android:id="@+id/singInFragment"
         android:name="com.ikpydev.ecommerceapp.presention.sing_in.SingInFragment"
         android:label="SingInFragment"
         tools:layout="@layout/sing_in_fragment"/>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.onboarding.OnboardingFragment"
+        android:label="OnboardingFragment"
+        tools:layout="@layout/onboarding_fragment">
+        <action
+            android:id="@+id/to_singInFragment"
+            app:destination="@id/singInFragment" />
+    </fragment>
 </navigation>
