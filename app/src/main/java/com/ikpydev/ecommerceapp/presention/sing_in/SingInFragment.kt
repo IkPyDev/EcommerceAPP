@@ -35,7 +35,7 @@ class SingInFragment : Fragment() {
 
     private fun susbsirceToLiveData() = with(binding) {
         viewModel.loading.observe(viewLifecycleOwner) {isloading ->
-            progressBtn.isVisible = isloading
+            progress.isVisible = isloading
         }
         viewModel.event.observe(viewLifecycleOwner){
             when(it){
@@ -47,8 +47,8 @@ class SingInFragment : Fragment() {
     }
 
     private fun initUi() = with(binding) {
-        sinInBtn.setOnClickListener {
-            viewModel.sinIn(usernameTv.text.toString(), passwordTv.text.toString())
+        singIn.setOnClickListener {
+            viewModel.sinIn(username.text.toString(), password.text.toString())
         }
     }
     private fun toast(message: Int){
