@@ -24,6 +24,8 @@
         android:background="@drawable/button_backgound"
         android:backgroundTint="@null"
         app:backgroundTint="@null"
+        android:fontFamily="@font/extra_bold"
+        android:textSize="16sp"
 
 
         android:text="@string/fragment_onboarding_next"
