@@ -1,4 +1,4 @@
-package com.ikpydev.ecommerceapp.presention.sing_in
+package com.ikpydev.ecommerceapp.presention.sign_in
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +13,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
-class SingInViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
+class SignInViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
 
     val loading = MutableLiveData(false)
     val event = SingleLiveEvent<Event>()
@@ -22,7 +22,8 @@ class SingInViewModel @Inject constructor(private val authRepository: AuthReposi
         loading.postValue(true)
         try {
 
-            authRepository.singIn(username, password)
+            authRepository.signIn(username, password)
+            event.postValue(Event.Seccefull)
         } catch (e: Exception) {
 
             when{
@@ -43,6 +44,8 @@ class SingInViewModel @Inject constructor(private val authRepository: AuthReposi
         object InvalidCredentails : Event()
         object ConnectionError : Event()
         object Error : Event()
+
+        object Seccefull : Event()
     }
 
 

@@ -3,7 +3,7 @@ package com.ikpydev.ecommerceapp.data.api.auth.dto
 import com.google.gson.annotations.SerializedName
 
 
-data class SingInRequest(
+data class SignInRequest(
     @SerializedName("username")
     val username: String,
     @SerializedName("password")

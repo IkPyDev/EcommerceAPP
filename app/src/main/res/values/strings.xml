@@ -17,4 +17,12 @@
     <string name="string_username">User name</string>
     <string name="sign_in_des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
     <string name="sign_in_welcome_back">Welcome back</string>
+    <string name="login">Login</string>
+    <string name="sign_up_text">Already have account?</string>
+    <string name="sign_up_chechbox_text">By tapping <b>“Sign Up”</b> you accept our </string>
+    <string name="fragment_register">register</string>
+    <string name="string_email">Email address</string>
+    <string name="sign_up_title">Create your account</string>
+    <string name="sing_up_pr">By tapping “Sign Up” you accept\nour terms and condition</string>
+    <string name="already">User added before</string>
 </resources>

@@ -8,9 +8,9 @@
 
 
     <ImageView
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="420dp"
-        android:id="@+id/background"
         android:adjustViewBounds="true"
         android:src="@drawable/sing_in_background"
         app:layout_constraintBottom_toTopOf="@+id/title"
@@ -18,13 +18,13 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@+id/background"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background" />
 
     <TextView
         android:id="@+id/title"
@@ -33,24 +33,12 @@
         android:layout_marginHorizontal="32dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/bold"
-        android:text="@string/sign_in_welcome_back"
+        android:text="@string/sign_up_title"
         android:textColor="@color/dark_text"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/description" />
+        app:layout_constraintBottom_toTopOf="@+id/username_layout" />
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/reguler"
-        android:text="@string/sign_in_des"
-        android:textColor="@color/soft_gray"
 
-        android:textSize="14sp"
-
-        app:layout_constraintBottom_toTopOf="@id/username_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_layout"
@@ -60,7 +48,7 @@
         android:layout_marginBottom="18dp"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
-        app:layout_constraintBottom_toTopOf="@id/password_layout"
+        app:layout_constraintBottom_toTopOf="@id/email_layout"
         app:startIconDrawable="@drawable/ic_user"
         app:startIconTint="@color/soft_gray">
 
@@ -76,6 +64,29 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="18dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintBottom_toTopOf="@id/password_layout"
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconTint="@color/soft_gray">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/input_field_background"
+            android:fontFamily="@font/reguler"
+            android:hint="@string/string_email"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_layout"
@@ -87,7 +98,7 @@
         app:boxStrokeWidthFocused="0dp"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/orange"
-        app:layout_constraintBottom_toTopOf="@id/sing_in"
+        app:layout_constraintBottom_toTopOf="@id/register"
         app:startIconDrawable="@drawable/ic_lock"
         app:startIconTint="@color/soft_gray">
 
@@ -105,7 +116,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/sing_in"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="76dp"
         android:layout_marginHorizontal="32dp"
@@ -113,12 +124,12 @@
         android:background="@drawable/button_backgound"
         android:backgroundTint="@null"
         android:fontFamily="@font/extra_bold"
-        android:text="@string/fragment_sing_in"
+        android:text="@string/fragment_register"
 
         android:textAllCaps="true"
         android:textSize="16sp"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@id/forgot"
+        app:layout_constraintBottom_toTopOf="@id/primishish"
         tools:layout_editor_absoluteX="32dp" />
 
     <ProgressBar
@@ -130,26 +141,26 @@
         android:indeterminateTint="@color/white"
         android:indeterminateTintMode="src_atop"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/sing_in"
-        app:layout_constraintEnd_toEndOf="@id/sing_in"
-        app:layout_constraintStart_toStartOf="@id/sing_in"
-        app:layout_constraintTop_toTopOf="@id/sing_in" />
+        app:layout_constraintBottom_toBottomOf="@id/register"
+        app:layout_constraintEnd_toEndOf="@id/register"
+        app:layout_constraintStart_toStartOf="@id/register"
+        app:layout_constraintTop_toTopOf="@id/register" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/forgot"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
+    <TextView
+        android:id="@+id/primishish"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginBottom="42dp"
-        android:fontFamily="@font/semis_bold"
-        android:text="@string/sing_in_forget_password"
+        android:fontFamily="@font/reguler"
+        android:text="@string/sing_up_pr"
         android:textAllCaps="false"
-        android:textColor="@color/orange"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/sin_in_text"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/sin_in_text"
@@ -157,7 +168,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/reguler"
-        android:text="@string/sing_in_account"
+        android:text="@string/sign_up_text"
 
         android:textColor="@color/soft_gray"
         android:textSize="16sp"
@@ -167,15 +178,16 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/sing_up"
-
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/semis_bold"
         android:padding="4dp"
+        android:textAllCaps="false"
         android:paddingVertical="8dp"
-        android:text="@string/sing_up_text"
+        android:text="@string/login"
         android:textColor="@color/orange"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/sin_in_text"
