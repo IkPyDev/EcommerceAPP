@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="28dp"
         android:scaleType="fitXY"
-        android:src="@drawable/button_backgound"
+        android:src="@drawable/onboarding_background"
         app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintTop_toTopOf="parent" />
 

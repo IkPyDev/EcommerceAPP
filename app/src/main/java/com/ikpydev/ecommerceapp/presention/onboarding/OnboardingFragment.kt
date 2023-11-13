@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -20,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class OnboardingFragment : Fragment() {
 
     private lateinit var binding: OnboardingFragmentBinding
+    private val viewModel by viewModels<OnboardingViewModel>()
 
     private val adapter = OnboardingAdapter()
 
@@ -78,6 +80,7 @@ class OnboardingFragment : Fragment() {
 
         next.setOnClickListener {
             if (pager.currentItem == adapter.itemCount - 1) {
+                viewModel.onboarded()
                 findNavController().navigate(OnboardingFragmentDirections.toSingInFragment())
             } else
                 pager.setCurrentItem(pager.currentItem + 1, true)

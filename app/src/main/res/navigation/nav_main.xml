@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_main.xml"
+    android:id="@+id/nav_main"
     app:startDestination="@id/onboardingFragment">
 
     <fragment
@@ -10,10 +10,11 @@
         android:name="com.ikpydev.ecommerceapp.presention.sign_in.SignInFragment"
         android:label="SingInFragment"
         tools:layout="@layout/sing_in_fragment">
-        <action android:id="@id/to_signupFragment"
+        <action
+            android:id="@id/to_signupFragment"
             app:destination="@+id/signUpFragment"
             app:popUpTo="@id/to_signupFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
@@ -22,22 +23,49 @@
         tools:layout="@layout/onboarding_fragment">
         <action
             android:id="@+id/to_singInFragment"
-            app:destination="@id/singInFragment" />
+            app:destination="@id/singInFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        tools:layout="@layout/sing_up_fragment"
         android:name="com.ikpydev.ecommerceapp.presention.sign_up.SignUpFragment"
-        android:label="SingUpFragment">
-        <action android:id="@+id/to_signupFragment"
+        android:label="SingUpFragment"
+        tools:layout="@layout/sing_up_fragment">
+        <action
+            android:id="@+id/to_signupFragment"
             app:destination="@+id/singInFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/singInFragment">
+            app:popUpTo="@id/singInFragment"
+            app:popUpToInclusive="true">
 
 
         </action>
 
 
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
+
+
+    </fragment>
+
+
+
+    <action
+        android:id="@+id/to_onboardingFragment"
+        app:destination="@+id/onboardingFragment"
+        app:popUpTo="@id/nav_main" />
+
+    <action
+        android:id="@+id/to_singInFragment"
+        app:destination="@+id/singInFragment"
+        app:popUpTo="@id/nav_main" />
+    <action
+        android:id="@+id/to_homeFragment"
+        app:destination="@+id/homeFragment"
+        app:popUpTo="@id/nav_main" />
+
 
 </navigation>

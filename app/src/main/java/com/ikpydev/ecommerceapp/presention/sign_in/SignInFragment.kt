@@ -53,6 +53,7 @@ class SignInFragment : Fragment() {
     private fun initUi() = with(binding) {
         singIn.setOnClickListener {
             viewModel.sinIn(username.text.toString(), password.text.toString())
+
         }
         singUp.setOnClickListener{
             findNavController().navigate(SignUpFragmentDirections.toSignupFragment())

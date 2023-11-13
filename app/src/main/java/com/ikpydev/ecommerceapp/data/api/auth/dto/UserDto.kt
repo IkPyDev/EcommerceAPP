@@ -6,9 +6,4 @@ import com.ikpydev.ecommerceapp.domain.module.User
 data class UserDto(
     @SerializedName("username")
     val username: String
-){
-
-    fun toUser() = User(
-        username = username
-    )
-}
+)
