@@ -10,4 +10,4 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class UserStore @Inject constructor() : BaseStrore<UserDto>("token", UserDto::class.java)
+class UserStore @Inject constructor() : BaseStrore<UserDto>("user", UserDto::class.java)
