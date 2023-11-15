@@ -130,7 +130,7 @@
         android:textAllCaps="true"
         android:textSize="16sp"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@id/primishish"
+        app:layout_constraintBottom_toTopOf="@id/terms"
         tools:layout_editor_absoluteX="32dp" />
 
     <ProgressBar
@@ -149,14 +149,15 @@
 
 
     <TextView
-        android:id="@+id/primishish"
+        android:id="@+id/terms"
 
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
+        android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="42dp"
         android:fontFamily="@font/reguler"
-        android:text="@string/sing_up_pr"
+
+        android:text="@string/sign_up_pr"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/sin_in_text"
@@ -168,6 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="32dp"
         android:fontFamily="@font/reguler"
         android:text="@string/sign_up_text"
 

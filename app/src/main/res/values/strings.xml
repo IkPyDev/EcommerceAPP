@@ -23,6 +23,15 @@
     <string name="fragment_register">register</string>
     <string name="string_email">Email address</string>
     <string name="sign_up_title">Create your account</string>
-    <string name="sing_up_pr">By tapping “Sign Up” you accept\nour terms and condition</string>
+    <string name="sign_up_pr">By tapping “Register” you accept our %s and %s </string>
+    <string name="terms_of_use">terms of use</string>
+    <string name="privacy_police">privacy police</string>
     <string name="already">User added before</string>
+    <string name="home_good_morning">Good morning.</string>
+    <string name="home_search">Search...</string>
+    <string name="home_categories">Categories</string>
+    <string name="home_show_all">Show all</string>
+    <string name="home_d_items">%d Items</string>
+    <string name="item_product_reting_count">%d Rating</string>
+    <string name="fragment_product_discountd_off">%d% OFF</string>
 </resources>
