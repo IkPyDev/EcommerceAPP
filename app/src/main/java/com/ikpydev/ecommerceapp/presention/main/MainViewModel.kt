@@ -19,7 +19,6 @@ class MainViewModel @Inject constructor(
 
     init {
         getDestination()
-
     }
 
     private fun getDestination() = viewModelScope.launch(Dispatchers.IO) {
@@ -27,9 +26,7 @@ class MainViewModel @Inject constructor(
             events.postValue(Event.NavigateTo(it))
         }
     }
-
-
-    sealed class Event{
+    sealed class Event {
         data class NavigateTo(val destination: Destination) : Event()
     }
 }
