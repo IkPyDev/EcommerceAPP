@@ -95,7 +95,7 @@
 
         android:layout_marginTop="13dp"
         android:background="@drawable/start_backgraound_home"
-        android:drawablePaddin="4dp"
+
         android:elegantTextHeight="true"
         android:fontFamily="@font/semis_bold"
 

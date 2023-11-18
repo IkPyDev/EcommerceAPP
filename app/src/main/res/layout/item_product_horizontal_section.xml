@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
 
         android:background="@drawable/start_backgraound_home"
-        android:drawablePaddin="4dp"
+
         android:fontFamily="@font/semis_bold"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
