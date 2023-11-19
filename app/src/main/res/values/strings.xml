@@ -33,8 +33,12 @@
     <string name="home_show_all">Show all</string>
     <string name="home_d_items">%d Items</string>
     <string name="item_product_reting_count">%d Rating</string>
-    <string name="fragment_product_discountd_off">%d% OFF</string>
+    <string name="fragment_product_discountd_off">%e OFF</string>
     <string name="home_error_loading">Error loading ...</string>
     <string name="retry">Retry</string>
     <string name="home_greeting">Hello, %s</string>
+    <string name="Item_category_count">%d Items</string>
+    <string name="home_price"> <strike>%.1f</strike> </string>
+    <string name="price">%.1f </string>
+    <string name="home_rating_start">%e</string>
 </resources>

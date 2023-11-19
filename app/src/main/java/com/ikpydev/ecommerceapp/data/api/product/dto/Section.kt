@@ -11,5 +11,5 @@ data class Section(
     @SerializedName("title")
     val title: String,
     @SerializedName("type")
-    val type: String
+    val type: SectionType
 )

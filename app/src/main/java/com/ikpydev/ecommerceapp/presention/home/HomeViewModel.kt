@@ -1,5 +1,6 @@
 package com.ikpydev.ecommerceapp.presention.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,6 +30,7 @@ class HomeViewModel @Inject constructor(
         try {
             val response = productRepository.getHome()
             home.postValue(response)
+
         } catch (e: Exception) {
             error.postValue(true)
 

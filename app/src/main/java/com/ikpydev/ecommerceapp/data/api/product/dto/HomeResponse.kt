@@ -9,7 +9,7 @@ data class HomeResponse(
     val banners: List<Banner>,
     @SerializedName("categories")
     val categories: List<Category>,
-    @SerializedName("cections")
+    @SerializedName("sections")
     val sections: List<Section>,
     @SerializedName("user")
     val user: UserDto

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="14dp"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        tools:src="@tools:sample/backgrounds/scenic"
+        android:scaleType="centerCrop"
+        android:id="@+id/image"
+        android:layout_height="match_parent"/>
+
+</androidx.cardview.widget.CardView>

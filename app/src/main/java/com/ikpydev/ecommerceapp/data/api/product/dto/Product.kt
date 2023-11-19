@@ -7,13 +7,13 @@ data class Product(
     @SerializedName("id")
     val id: String,
     @SerializedName("discount")
-    val discount: Int,
+    val discount: Double?,
     @SerializedName("favorite")
-    val favorite: Boolean,
+    var favorite: Boolean,
     @SerializedName("image")
     val image: String,
     @SerializedName("price")
-    val price: Int,
+    val price: Double,
     @SerializedName("rating")
     val rating: Double,
     @SerializedName("rating_count")

@@ -43,7 +43,7 @@
         android:id="@+id/name"/>
 
     <TextView
-        android:id="@+id/image_tetx"
+        android:id="@+id/item_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
@@ -52,7 +52,7 @@
         android:layout_marginTop="2dp"
 
         app:layout_constraintTop_toBottomOf="@id/name"
-        tools:text="102 Items"/>
+        tools:text="@string/Item_category_count"/>
 
 
 
