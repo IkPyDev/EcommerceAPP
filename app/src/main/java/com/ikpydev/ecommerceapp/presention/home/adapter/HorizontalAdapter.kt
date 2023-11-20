@@ -1,5 +1,6 @@
 package com.ikpydev.ecommerceapp.presention.home.adapter
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -23,7 +24,7 @@ class HorizontalAdapter(
             name.text = product.title
 
             val current = product.price - (product.discount ?: 0.0)
-            price.text = root.context.getString(R.string.home_price, current)
+            price.text = root.context.getString(R.string.price, current)
             discount.isVisible = product.discount != null
 
             product.discount?.let {
@@ -37,7 +38,9 @@ class HorizontalAdapter(
             ratingCount.text = root.context.getString(R.string.item_product_reting_count,product.ratingCount)
             ratingStart.text = root.context.getString(R.string.home_rating_start,product.rating)
 
-            oldPrice.text = root.context.getString(R.string.home_price, product.price)
+
+
+            oldPrice.text = root.context.getString(R.string.home_price,product.price)
             oldPrice.isVisible = product.discount != null
 
             root.setOnClickListener {

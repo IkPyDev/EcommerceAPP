@@ -4,16 +4,16 @@ import com.google.gson.annotations.SerializedName
 import com.ikpydev.ecommerceapp.domain.module.User
 
 data class UserDto(
-    @SerializedName("username")
-    val username: String,
     @SerializedName("avatar")
     val avatar: String?,
     @SerializedName("email")
     val email: String,
-    @SerializedName("firstName")
+    @SerializedName("first_name")
     val firstName: String?,
-    @SerializedName("lastName")
-    val lastName: String?
+    @SerializedName("last_name")
+    val lastName: String?,
+    @SerializedName("username")
+    val username: String
 ){
     fun toUser() = User(
         username = username,

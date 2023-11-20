@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.data.api.product.dto.Banner
@@ -20,9 +21,11 @@ import com.ikpydev.ecommerceapp.databinding.HomeFragmentBinding
 import com.ikpydev.ecommerceapp.presention.home.adapter.BannerAdapter
 import com.ikpydev.ecommerceapp.presention.home.adapter.HomeCategoryAdapter
 import com.ikpydev.ecommerceapp.presention.home.adapter.SectionAdapter
+import com.ikpydev.ecommerceapp.utils.HorizontalMarginItemDecoration
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.abs
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -59,9 +62,34 @@ class HomeFragment : Fragment() {
             setSliderWidth(resources.getDimension(R.dimen.dp_20))
             setSliderHeight(resources.getDimension(R.dimen.dp_4))
             setSlideMode(IndicatorSlideMode.WORM)
-            setIndicatorStyle(IndicatorStyle.CIRCLE)
+            setIndicatorStyle(IndicatorStyle.ROUND_RECT)
             notifyDataChanged()
         }
+
+        banners.offscreenPageLimit = 1
+
+// Add a PageTransformer that translates the next and previous items horizontally
+// towards the center of the screen, which makes them visible
+        val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
+        val currentItemHorizontalMarginPx =
+            resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
+        val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx
+        val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
+            page.translationX = -pageTranslationX * position
+            // Next line scales the item's height. You can remove it if you don't want this effect
+            page.scaleY = 1 - (0.25f * abs(position))
+            // If you want a fading effect uncomment the next line:
+            // page.alpha = 0.25f + (1 - abs(position))
+        }
+        banners.setPageTransformer(pageTransformer)
+
+// The ItemDecoration gives the current (centered) item horizontal margin so that
+// it doesn't occupy the whole screen width. Without it the items overlap
+        val itemDecoration = HorizontalMarginItemDecoration(
+            requireContext(),
+            R.dimen.viewpager_current_item_horizontal_margin
+        )
+        banners.addItemDecoration(itemDecoration)
     }
 
     private fun subscribeToLiveData() = with(binding) {
@@ -75,7 +103,6 @@ class HomeFragment : Fragment() {
         viewModel.home.observe(viewLifecycleOwner) {
             home.isVisible = it != null
             it ?: return@observe
-
 
 
             val name = it.user.firstName ?: it.user.username

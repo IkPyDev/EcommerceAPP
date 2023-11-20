@@ -137,7 +137,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/ratingCount"
         app:layout_constraintEnd_toEndOf="parent"
 
-        tools:text="@string/price" />
+        tools:text="@string/price_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
