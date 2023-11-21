@@ -13,6 +13,7 @@ import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.SingInFragmentBinding
 import com.ikpydev.ecommerceapp.presention.sign_up.SignUpFragment
 import com.ikpydev.ecommerceapp.presention.sign_up.SignUpFragmentDirections
+import com.ikpydev.ecommerceapp.utils.clearLightStatusBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,6 +52,7 @@ class SignInFragment : Fragment() {
     }
 
     private fun initUi() = with(binding) {
+        clearLightStatusBar()
         singIn.setOnClickListener {
             viewModel.sinIn(username.text.toString(), password.text.toString())
 

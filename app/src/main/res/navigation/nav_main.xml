@@ -47,9 +47,19 @@
         android:name="com.ikpydev.ecommerceapp.presention.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/to_categoriesFragment"
+            app:destination="@+id/categoriesFragment"/>
+
 
 
     </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.categories.CategoriesFragment"
+        tools:layout="@layout/categories_fragment"
+        android:label="CategoriesFragment"/>
+
 
 
 

@@ -1,6 +1,7 @@
 package com.ikpydev.ecommerceapp.data.repo
 
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
+import com.ikpydev.ecommerceapp.data.api.product.dto.Category
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
 import com.ikpydev.ecommerceapp.data.store.UserStore
 import com.ikpydev.ecommerceapp.domain.repo.ProductRepository
@@ -15,4 +16,7 @@ class ProductRepositoryImpl @Inject constructor(
         userStore.set(response.user)
         return response
     }
+
+    override suspend fun getCategories()= productApi.getCategories()
+
 }

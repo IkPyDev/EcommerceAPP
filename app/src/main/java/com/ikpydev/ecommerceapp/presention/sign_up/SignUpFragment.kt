@@ -21,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.SingUpFragmentBinding
 import com.ikpydev.ecommerceapp.presention.sign_in.SignInFragmentDirections
+import com.ikpydev.ecommerceapp.utils.clearLightStatusBar
 import com.ikpydev.ecommerceapp.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,6 +50,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initUi() = with(binding) {
+        clearLightStatusBar()
         register.setOnClickListener {
             if (!username.text.isNullOrBlank() && !email.text.isNullOrBlank() && !password.text.isNullOrBlank()) {
                 viewModel.signUp(

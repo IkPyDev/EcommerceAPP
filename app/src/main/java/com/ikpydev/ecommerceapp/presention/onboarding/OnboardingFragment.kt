@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.OnboardingFragmentBinding
+import com.ikpydev.ecommerceapp.utils.clearLightStatusBar
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +43,7 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun initUi() = with(binding) {
+        clearLightStatusBar()
         pager.adapter = adapter
 
         indicator.apply {
@@ -51,7 +53,7 @@ class OnboardingFragment : Fragment() {
             setSliderWidth(resources.getDimension(R.dimen.dp_15))
             setSliderHeight(resources.getDimension(R.dimen.dp_8))
             setSlideMode(IndicatorSlideMode.WORM)
-            setIndicatorStyle(IndicatorStyle.CIRCLE)
+            setIndicatorStyle(IndicatorStyle.ROUND_RECT)
             setPageSize(adapter.itemCount)
             notifyDataChanged()
         }

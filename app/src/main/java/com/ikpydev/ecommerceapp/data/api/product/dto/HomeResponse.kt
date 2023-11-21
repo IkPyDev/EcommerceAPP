@@ -12,5 +12,7 @@ data class HomeResponse(
     @SerializedName("sections")
     val sections: List<Section>,
     @SerializedName("user")
-    val user: UserDto
+    val user: UserDto,
+    @SerializedName("notification_count")
+    val notification_count: Int
 )

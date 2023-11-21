@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="14dp"
+    android:layout_marginHorizontal="32dp"
+    android:layout_marginVertical="7dp"
+    app:strokeWidth="1dp"
+
+    app:strokeColor="@color/soft_gray"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginVertical="@dimen/dp_20"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            tools:src="@tools:sample/backgrounds/scenic"
+
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/name"
+            app:layout_constraintBottom_toTopOf="@id/item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/home_categories"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toEndOf="@id/image"
+            android:textColor="@color/dark_text"
+            android:textSize="22sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+
+            />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/item_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/soft_gray"
+            android:fontFamily="@font/reguler"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+
+            tools:text="@string/Item_category_count" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
