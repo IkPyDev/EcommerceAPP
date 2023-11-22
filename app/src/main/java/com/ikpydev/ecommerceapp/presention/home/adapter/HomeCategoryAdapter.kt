@@ -21,6 +21,10 @@ class HomeCategoryAdapter(
             name.text = categories.title
             itemCount.text= root.context.getString(R.string.Item_category_count,categories.count)
 
+            root.setOnClickListener {
+                onCategoryClick(categories)
+            }
+
         }
     }
 

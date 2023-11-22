@@ -51,6 +51,10 @@
             android:id="@+id/to_categoriesFragment"
             app:destination="@+id/categoriesFragment"/>
 
+        <action
+            android:id="@+id/to_productFragment"
+            app:destination="@+id/productFragment"/>
+
 
 
     </fragment>
@@ -58,7 +62,25 @@
         android:id="@+id/categoriesFragment"
         android:name="com.ikpydev.ecommerceapp.presention.categories.CategoriesFragment"
         tools:layout="@layout/categories_fragment"
-        android:label="CategoriesFragment"/>
+        android:label="CategoriesFragment">
+        <action
+            android:id="@+id/to_productFragment"
+            app:destination="@+id/productFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.product.ProductFragment"
+        android:label="ProductFragment"
+        tools:layout="@layout/product_fragment">
+
+        <argument
+            android:name="category"
+            app:argType="com.ikpydev.ecommerceapp.data.api.product.dto.Category"/>
+
+
+    </fragment>
 
 
 

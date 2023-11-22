@@ -151,20 +151,21 @@
         app:layout_constraintTop_toBottomOf="@id/price"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintEnd_toEndOf="@id/name"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/name"
-        app:layout_constraintEnd_toEndOf="@id/name"
-        android:drawablePadding="10dp"
-        app:drawableStartCompat="@drawable/ic_discount"
-        tools:text="5% off upto $100"
-        android:layout_marginTop="9dp"
-        android:textColor="@color/soft_gray"
-        android:fontFamily="@font/medium"
-        android:textSize="10sp"
 
-app:layout_constraintBaseline_toBaselineOf="@id/discount"/>
+<!--    <TextView-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="9dp"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:fontFamily="@font/medium"-->
+<!--        android:textColor="@color/soft_gray"-->
+<!--        android:textSize="10sp"-->
+<!--        app:drawableStartCompat="@drawable/ic_discount"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/name"-->
+<!--        app:layout_constraintStart_toStartOf="@id/name"-->
+<!--        tools:text="5% off upto $100"-->
+
+<!--app:layout_constraintBaseline_toBaselineOf="@id/discount"/>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

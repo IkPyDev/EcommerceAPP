@@ -129,7 +129,6 @@ class HomeFragment : Fragment() {
 
             categories.adapter =
                 HomeCategoryAdapter(it.categories, this@HomeFragment::onCategoryClick)
-            Toast.makeText(root.context, "${it.sections.size}", Toast.LENGTH_SHORT).show()
 
             section.adapter = SectionAdapter(
                 it.sections,
@@ -147,6 +146,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun onCategoryClick(category: Category) {
+        findNavController().navigate(HomeFragmentDirections.toProductFragment(category))
 
     }
 
