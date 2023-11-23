@@ -2,10 +2,13 @@
 
 package com.ikpydev.ecommerceapp.utils
 
+import android.app.Activity
+import android.content.Context
 import android.os.Build
 import android.view.View
 import android.view.WindowInsetsController
 import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
@@ -42,4 +45,24 @@ fun Fragment.clearLightStatusBar() {
         requireActivity().window.decorView.systemUiVisibility = 0
     }
 
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let { activity?.hideKeyboard(it) }
+}
+
+fun Activity.hideKeyboard() {
+    hideKeyboard(currentFocus ?: View(this))
+}
+
+fun Context.hideKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+fun Fragment.showKeyboard() {
+    view?.let { activity?.showKeyboard(it) }
+}
+fun Context.showKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.showSoftInput(view, 0)
 }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
- abstract class BaseStrore<T> (private val key: String, private val clasOft:Class<T>) {
+ abstract class BaseStore<T> (private val key: String, private val clasOft:Class<T>) {
 
     @Inject
     lateinit var dataStore: DataStore<Preferences>
@@ -26,7 +26,7 @@ import javax.inject.Inject
 
     suspend fun get() = getFlow().firstOrNull()
 
-     suspend fun getFlow() = dataStore.data.map {
+      fun getFlow() = dataStore.data.map {
         val json =it[stringPreferencesKey(key)]
         try {
                 gson.fromJson(json,clasOft)
@@ -34,4 +34,10 @@ import javax.inject.Inject
             null
         }
     }
+
+     suspend fun clear() {
+         dataStore.edit {
+             it.remove(stringPreferencesKey(key))
+         }
+     }
 }

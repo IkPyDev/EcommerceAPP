@@ -42,4 +42,8 @@
     <string name="price">%.1f $ </string>
     <string name="price_text"><strike>%s</strike></string>
     <string name="home_rating_start">%.1f</string>
+    <string name="Search">Search</string>
+    <string name="resent">Recent Search</string>
+    <string name="clear_all">Clear All</string>
+    <string name="SearchRes">Search Result</string>
 </resources>

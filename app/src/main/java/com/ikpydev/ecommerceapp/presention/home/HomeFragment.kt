@@ -62,6 +62,8 @@ class HomeFragment : Fragment() {
 
 
 
+
+
         indicator.apply {
             val normalColor = ContextCompat.getColor(requireContext(), R.color.indicator_unchecked)
             val checkedColor = ContextCompat.getColor(requireContext(), R.color.indicator_checked)
@@ -121,6 +123,11 @@ class HomeFragment : Fragment() {
 
             showAll.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.toCategoriesFragment())
+            }
+            searchContainer.search.setOnFocusChangeListener { view, focused ->
+                if (focused.not()) return@setOnFocusChangeListener
+                findNavController().navigate(HomeFragmentDirections.toSearchFragment())
+
             }
             indicator.setupWithViewPager(banners)
             indicator.apply {

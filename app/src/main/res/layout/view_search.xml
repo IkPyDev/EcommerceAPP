@@ -1,48 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchLayout"
+    >
+
+
+    <EditText
+        android:id="@+id/search"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="18dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
+        android:background="@drawable/search_background"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="16dp"
+        android:hint="@string/home_search"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:paddingHorizontal="25dp"
+        android:textColor="@color/soft_gray"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@id/filter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_search">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_backgroud"
-            android:hint="@string/home_search"
-
-            android:textColor="@color/soft_gray"
-            android:textSize="16sp"
-
-
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        />
 
     <ImageButton
         android:id="@+id/filter"
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/search_backgroud"
+        android:background="@drawable/search_backgrount"
         android:src="@drawable/ic_filtr"
-        app:layout_constraintBottom_toBottomOf="@id/searchLayout"
+        app:layout_constraintBottom_toBottomOf="@id/search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/searchLayout" />
+        app:layout_constraintTop_toTopOf="@id/search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

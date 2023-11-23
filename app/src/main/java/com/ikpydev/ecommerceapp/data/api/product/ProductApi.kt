@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface ProductApi {
 
     @GET("home")
-    suspend fun getHome():HomeResponse
+    suspend fun getHome(): HomeResponse
 
     @GET("categories")
     suspend fun getCategories(): List<Category>
@@ -17,8 +17,9 @@ interface ProductApi {
 
     @GET("product")
     suspend fun getProducts(
-        @Query("category_id") categoryId:String?,
-        @Query("page") page:Int,
-        @Query("size") size:Int
-    ):List<Product>
+        @Query("category_id") categoryId: String?,
+        @Query("search") search: String?,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): List<Product>
 }

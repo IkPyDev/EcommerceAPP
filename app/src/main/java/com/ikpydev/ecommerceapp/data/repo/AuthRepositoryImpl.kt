@@ -11,6 +11,7 @@ import com.ikpydev.ecommerceapp.domain.module.Destination
 import com.ikpydev.ecommerceapp.domain.repo.AuthRepository
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -62,7 +63,7 @@ class AuthRepositoryImpl @Inject constructor(
                 sendDestination()
             }
         }
-    }
+    }.distinctUntilChanged()
 
     override suspend fun onboarded() = onboardedStore.set(true)
 }
