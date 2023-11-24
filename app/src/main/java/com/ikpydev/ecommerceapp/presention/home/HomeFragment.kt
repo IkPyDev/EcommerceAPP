@@ -107,7 +107,7 @@ class HomeFragment : Fragment() {
 
         }
         viewModel.error.observe(viewLifecycleOwner) {
-            loading.root.isVisible = it
+            error.root.isVisible = it
         }
         viewModel.home.observe(viewLifecycleOwner) {
             home.isVisible = it != null

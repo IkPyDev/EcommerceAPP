@@ -24,7 +24,7 @@ class SearchViewModel @Inject constructor(
 
     val loading = MutableLiveData(false)
     val product = MediatorLiveData<PagingData<Product>>()
-    val query = MutableLiveData<ProductQuery>()
+    val query = MutableLiveData(ProductQuery())
 
     val recents = MutableLiveData<List<String>>()
 
@@ -46,7 +46,9 @@ class SearchViewModel @Inject constructor(
 
     fun setSearch(search: String) {
         addRecent(search)
-        query.postValue(query.value!!.copy(search = search))
+        query.postValue(query.value?.copy(search = search))
+        getProduct()
+
     }
 
     fun setLoadStates(states: CombinedLoadStates) {

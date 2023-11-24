@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -67,35 +68,35 @@ class SearchFragment : Fragment() {
 
         viewModel.recents.observe(viewLifecycleOwner) {
             resent.adapter = RecentsAdapter(it, this@SearchFragment::onRecentClick)
-            isRecentsVisible(search.search.hasFocus())
+            isRecentsVisible(searchContainer.search.hasFocus())
         }
 
     }
 
     private fun initUi() = with(binding) {
-        search.search.requestFocus()
-        showKeyboard()
+        searchContainer.search.requestFocus()
+
         close.setOnClickListener {
             findNavController().popBackStack()
         }
 
         product.adapter = adapter
 
-        search.search.setOnEditorActionListener { _, actionId, _ ->
+        searchContainer.search.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                viewModel.setSearch(search.search.text.toString())
+                viewModel.setSearch(searchContainer.search.text.toString())
                 viewLifecycleOwner.lifecycleScope.launch {
                     adapter.submitData(PagingData.empty())
                 }
 
                 hideKeyboard()
-                search.search.clearFocus()
+                searchContainer.search.clearFocus()
                 return@setOnEditorActionListener true
             }
-            true
+            false
         }
 
-        search.search.setOnFocusChangeListener { view, focused ->
+        searchContainer.search.setOnFocusChangeListener { view, focused ->
             isRecentsVisible(focused)
 
         }
@@ -109,7 +110,7 @@ class SearchFragment : Fragment() {
 
     private fun SearchFragmentBinding.isRecentsVisible(focused: Boolean) {
         listOf(resent, resentTitle, clear).forEach {
-            it.isVisible = viewModel.recents.value.isNullOrEmpty() && focused
+            it.isVisible = viewModel.recents.value.isNullOrEmpty().not() && focused
         }
     }
 

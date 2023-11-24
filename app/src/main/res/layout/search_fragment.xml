@@ -32,7 +32,7 @@
 
 
     <include
-        android:id="@+id/search"
+        android:id="@+id/searchContainer"
         layout="@layout/view_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         android:textColor="@color/dark_text"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/search" />
+        app:layout_constraintTop_toBottomOf="@id/searchContainer" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clear"
@@ -72,12 +72,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/resent"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/resentTitle"
-        app:layout_constraintWidth_max="128dp"
+        app:layout_constraintHeight_max="128dp"
         tools:listitem="@layout/items_recent" />
 
     <com.google.android.material.divider.MaterialDivider

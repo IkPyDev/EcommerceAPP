@@ -20,28 +20,28 @@ import javax.inject.Inject
 @HiltViewModel
 class ProductViewModel @Inject constructor(
     private val productRepository: ProductRepository
-) :ViewModel() {
+) : ViewModel() {
 
     val loading = MutableLiveData(false)
     val error = MutableLiveData(false)
     val product = MediatorLiveData<PagingData<Product>>()
     val category = MutableLiveData<Category>()
 
-    fun setCategory(category: Category){
+    fun setCategory(category: Category) {
         this.category.postValue(category)
         getProduct()
     }
 
-     fun getProduct() = viewModelScope.launch {
+    fun getProduct() = viewModelScope.launch {
         val query = ProductQuery(category = category.value)
-     productRepository.getProduct(query).collectLatest {
-         product.postValue(it)
-     }
-
+        productRepository.getProduct(query).collectLatest {
+            product.postValue(it)
         }
 
+    }
 
-    fun setLoadStates(states: CombinedLoadStates){
+
+    fun setLoadStates(states: CombinedLoadStates) {
         val loading = states.source.append is LoadState.Loading
         this.loading.postValue(loading)
     }
