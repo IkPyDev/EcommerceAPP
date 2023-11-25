@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/filterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/bold"
+
+
+            android:text="@string/Fragment_filter_title"
+            android:textColor="@color/dark_text"
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@id/close"
+
+            app:layout_constraintTop_toTopOf="@id/close" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reset"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="@string/frgament_filter_reset"
+            android:textAllCaps="false"
+            android:textColor="@color/orange"
+
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/filterTitle"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/priceTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="27dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/Fragment_filter_price_title"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/close" />
+
+        <com.google.android.material.slider.RangeSlider
+
+            android:id="@+id/range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="40dp"
+            android:valueFrom="0.0"
+            android:valueTo="1000.0"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/priceTitle"
+            app:values="@array/initial_slider_values" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/priceDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="38dp"
+            app:dividerColor="@color/gray_1"
+
+            app:layout_constraintTop_toBottomOf="@id/range" />
+
+        <TextView
+            android:id="@+id/ratingTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/Fragment_filter_rating_title"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceDivider" />
+
+
+        <RadioGroup
+            android:id="@+id/ratingGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+
+            android:layout_marginTop="30dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/ratingTitle">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:buttonTint="@color/orange"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:fontFamily="@font/medium"
+                android:text="@string/fragment_filter_one_two_starts"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:buttonTint="@color/orange"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:fontFamily="@font/medium"
+                android:text="@string/fragment_filter_two_thee_starts"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:buttonTint="@color/orange"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:fontFamily="@font/medium"
+                android:text="@string/fragment_filter_three_four_starts"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:buttonTint="@color/orange"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:fontFamily="@font/medium"
+                android:text="@string/fragment_filter_four_fife_starts"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/ratingDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="27dp"
+            app:dividerColor="@color/gray_1"
+
+            app:layout_constraintTop_toBottomOf="@id/ratingGroup" />
+
+
+        <TextView
+            android:id="@+id/discountTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/Fragment_filter_discount_title"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingDivider" />
+
+
+        <RadioGroup
+            android:id="@+id/discountGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+
+            android:layout_marginTop="30dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/discountTitle">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:buttonTint="@color/orange"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:fontFamily="@font/medium"
+                android:text="@string/fragment_filter_10_20"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/orange"
+                android:fontFamily="@font/medium"
+                android:layoutDirection="rtl"
+
+                android:text="@string/fragment_filter_25_50"
+
+                android:textColor="@color/dark_text"
+                android:textDirection="ltr"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/orange"
+                android:checked="true"
+                android:fontFamily="@font/medium"
+                android:layoutDirection="rtl"
+                android:text="@string/fragment_filter_50_70"
+                android:textColor="@color/dark_text"
+                android:textDirection="ltr"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:buttonTint="@color/orange"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:fontFamily="@font/medium"
+                android:text="@string/fragment_filter_70"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/discountDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="27dp"
+            app:dividerColor="@color/gray_1"
+
+            app:layout_constraintTop_toBottomOf="@id/discountGroup" />
+
+        <TextView
+            android:id="@+id/othersTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/Fragment_filter_others_title"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/discountDivider" />
+
+
+        <CheckBox
+            android:id="@+id/discountSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="@color/orange"
+            android:checked="true"
+            android:fontFamily="@font/medium"
+            android:text="@string/fragment_filter_discount"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/shippingSort"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/othersTitle" />
+
+        <CheckBox
+            android:id="@+id/shippingSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="32dp"
+            android:buttonTint="@color/orange"
+            android:fontFamily="@font/medium"
+            android:text="@string/fragment_filter_free_shipping"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/discountSort"
+            app:layout_constraintTop_toBottomOf="@id/othersTitle" />
+
+        <CheckBox
+            android:id="@+id/voucherSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="8dp"
+            android:buttonTint="@color/orange"
+            android:fontFamily="@font/medium"
+            android:text="@string/fragment_filter_voucher"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/deliverySort"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/discountSort" />
+
+        <CheckBox
+            android:id="@+id/deliverySort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="32dp"
+            android:buttonTint="@color/orange"
+            android:fontFamily="@font/medium"
+            android:text="@string/fragment_filter_same_day"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/voucherSort"
+            app:layout_constraintTop_toBottomOf="@id/shippingSort" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/othersDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="27dp"
+            app:dividerColor="@color/gray_1"
+
+            app:layout_constraintTop_toBottomOf="@id/deliverySort" />
+
+
+        <TextView
+            android:id="@+id/categoryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/Fragment_filter_category_title"
+            android:textAllCaps="true"
+            android:textColor="@color/dark_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/othersDivider" />
+
+        <RadioGroup
+            android:id="@+id/categoryGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            app:layout_constraintTop_toBottomOf="@id/categoryGroup"
+            android:layout_marginTop="31dp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/apply"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="32dp"
+            android:background="@drawable/button_backgound"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/extra_bold"
+            android:text="@string/fragment_apple"
+            android:textAllCaps="true"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/categoryGroup"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="16sp"
+            app:backgroundTint="@null"
+            tools:layout_editor_absoluteX="32dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
