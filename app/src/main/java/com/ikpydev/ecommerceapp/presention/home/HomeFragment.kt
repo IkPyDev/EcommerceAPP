@@ -52,18 +52,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initUi() = with(binding) {
-
         setLightStatusBar()
-
-
         error.retry.setOnClickListener {
             viewModel.getHome()
         }
-
-
-
-
-
         indicator.apply {
             val normalColor = ContextCompat.getColor(requireContext(), R.color.indicator_unchecked)
             val checkedColor = ContextCompat.getColor(requireContext(), R.color.indicator_checked)

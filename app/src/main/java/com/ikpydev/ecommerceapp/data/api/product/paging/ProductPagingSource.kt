@@ -20,6 +20,11 @@ class ProductPagingSource(
             val product = productApi.getProducts(
                 categoryId = query.category?.id,
                 search = query.search ,
+                from = query.range.first,
+                to = query.range.second,
+                rating = query.rating,
+                discount = query.discount,
+                sort = query.sort?.joinToString(),
                 page = key,
                 size = params.loadSize
             )

@@ -67,7 +67,7 @@
 
         <com.google.android.material.slider.RangeSlider
 
-            android:id="@+id/range"
+            android:id="@+id/rangeSlinder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="35dp"
@@ -87,7 +87,7 @@
             android:layout_marginTop="38dp"
             app:dividerColor="@color/gray_1"
 
-            app:layout_constraintTop_toBottomOf="@id/range" />
+            app:layout_constraintTop_toBottomOf="@id/rangeSlinder" />
 
         <TextView
             android:id="@+id/ratingTitle"
@@ -152,7 +152,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
-                android:buttonTint="@color/orange"
                 android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
                 android:fontFamily="@font/medium"
                 android:text="@string/fragment_filter_four_fife_starts"
@@ -201,7 +200,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
-                android:buttonTint="@color/orange"
+
                 android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
                 android:fontFamily="@font/medium"
                 android:text="@string/fragment_filter_10_20"
@@ -213,21 +212,24 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/orange"
                 android:fontFamily="@font/medium"
-                android:layoutDirection="rtl"
+                android:button="@null"
+
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
 
                 android:text="@string/fragment_filter_25_50"
 
                 android:textColor="@color/dark_text"
-                android:textDirection="ltr"
+
                 android:textSize="16sp" />
 
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/orange"
-                android:checked="true"
+
                 android:fontFamily="@font/medium"
-                android:layoutDirection="rtl"
+                android:button="@null"
+
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
                 android:text="@string/fragment_filter_50_70"
                 android:textColor="@color/dark_text"
                 android:textDirection="ltr"
@@ -278,7 +280,6 @@
             android:layout_marginTop="31dp"
             android:layout_marginEnd="8dp"
             android:buttonTint="@color/orange"
-            android:checked="true"
             android:fontFamily="@font/medium"
             android:text="@string/fragment_filter_discount"
             android:textColor="@color/dark_text"

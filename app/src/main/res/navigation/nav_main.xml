@@ -55,7 +55,7 @@
             app:destination="@+id/productFragment" />
         <action
             android:id="@+id/to_searchFragment"
-            app:destination="@+id/searchFragment"/>
+            app:destination="@+id/searchFragment" />
 
 
     </fragment>
@@ -94,10 +94,9 @@
             android:defaultValue="@null"
             app:argType="com.ikpydev.ecommerceapp.data.api.product.dto.Category"
             app:nullable="true" />
-
         <action
-            android:id="@+id/to_searchFragment"
-            app:destination="@+id/searchFragment"/>
+            android:id="@+id/to_filterFragment"
+            app:destination="@+id/filterFragment" />
 
     </fragment>
 
@@ -116,5 +115,17 @@
         app:destination="@+id/homeFragment"
         app:popUpTo="@id/nav_main" />
 
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.filter.FilterFragment"
+
+        android:label="FilterFragment"
+        tools:layout="@layout/filter_fragment">
+        <argument
+            android:name="filter"
+            app:argType="com.ikpydev.ecommerceapp.domain.module.ProductQuery" />
+
+
+    </fragment>
 
 </navigation>

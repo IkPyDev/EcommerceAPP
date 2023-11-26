@@ -9,6 +9,7 @@ import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -16,6 +17,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.paging.PagingData
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.SearchFragmentBinding
+import com.ikpydev.ecommerceapp.domain.module.ProductQuery
+import com.ikpydev.ecommerceapp.presention.filter.FilterFragment
+import com.ikpydev.ecommerceapp.presention.home.HomeFragmentDirections
+import com.ikpydev.ecommerceapp.presention.search.SearchFragmentDirections.toFilterFragment
 import com.ikpydev.ecommerceapp.presention.search.adapter.RecentsAdapter
 import com.ikpydev.ecommerceapp.presention.search.adapter.SearchProductAdapter
 import com.ikpydev.ecommerceapp.utils.hideKeyboard
@@ -103,6 +108,20 @@ class SearchFragment : Fragment() {
 
         clear.setOnClickListener {
             viewModel.clearRecent()
+        }
+
+
+        searchContainer.filter.setOnClickListener {
+            val query = viewModel.query.value ?: ProductQuery()
+            findNavController().navigate(toFilterFragment(query))
+        }
+
+        setFragmentResultListener(FilterFragment.REQUEST_KEY){_,result ->
+            val query = result.getParcelable<ProductQuery>(FilterFragment.RESULT_KEY)
+            viewModel.setQuery(query ?: return@setFragmentResultListener)
+            searchContainer.search.clearFocus()
+            hideKeyboard()
+            isRecentsVisible(false)
         }
 
 

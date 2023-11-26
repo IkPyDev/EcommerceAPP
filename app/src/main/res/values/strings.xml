@@ -66,4 +66,5 @@
     <string name="fragment_filter_same_day">Same Day Deli</string>
     <string name="Fragment_filter_category_title">Sort by categories</string>
     <string name="fragment_apple">apply filter</string>
+    <string name="fragment_filter_category_error">Error fetching categories</string>
 </resources>

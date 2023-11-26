@@ -17,11 +17,15 @@ class FilterViewModel @Inject constructor(private val productRepository: Product
         val categories = MutableLiveData<List<Category>>()
         val events = SingleLiveEvent<Event>()
 
+    init {
+        getCategories()
+    }
+
 
     fun getCategories() = viewModelScope.launch {
         try {
             val result  = productRepository.getCategories()
-            categories.postValue(result)
+            categories.value = result
         }catch (e:Exception) { events.postValue(Event.CategoryError)}
     }
 }

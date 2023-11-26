@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.ikpydev.ecommerceapp.data.api.product.dto.Category
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.domain.module.ProductQuery
@@ -34,14 +35,14 @@ class SearchViewModel @Inject constructor(
 
 
     fun getProduct() = viewModelScope.launch {
-        productRepository.getProduct(query.value!!).collectLatest {
+        productRepository.getProduct(query.value!!).cachedIn(viewModelScope).collectLatest {
             product.postValue(it)
         }
     }
 
 
     fun setCategory(category: Category) {
-        query.postValue(query.value!!.copy(category = category))
+        query.postValue(query.value?.copy(category = category))
     }
 
     fun setSearch(search: String) {
@@ -70,5 +71,9 @@ class SearchViewModel @Inject constructor(
 
     fun addRecent(search: String) = viewModelScope.launch {
         productRepository.addRecent(search)
+    }
+    fun setQuery(query: ProductQuery){
+        this.query.value = query
+        getProduct()
     }
 }
