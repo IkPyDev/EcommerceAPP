@@ -67,4 +67,8 @@
     <string name="Fragment_filter_category_title">Sort by categories</string>
     <string name="fragment_apple">apply filter</string>
     <string name="fragment_filter_category_error">Error fetching categories</string>
+    <string name="free_delivery">FREE DELIVERY</string>
+    <string name="product_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="related">Related product</string>
+    <string name="add_to_cart">add to cart</string>
 </resources>
