@@ -57,11 +57,12 @@ class ProductFragment : Fragment() {
             error.root.isVisible = it
 
         }
-        viewModel.product.observe(viewLifecycleOwner){
+        viewModel.product.observe(viewLifecycleOwner) { pagingData ->
             viewLifecycleOwner.lifecycleScope.launch {
-                adapter.submitData(it)
+                adapter.submitData(pagingData)
             }
         }
+
         viewModel.category.observe(viewLifecycleOwner){
             title.text = it.title
         }
@@ -80,7 +81,7 @@ class ProductFragment : Fragment() {
     }
 
     private fun onClick(product: Product) {
-
+        findNavController().navigate(ProductFragmentDirections.toDetailFragment(product.id))
     }
 
     private fun liked(product: Product) {

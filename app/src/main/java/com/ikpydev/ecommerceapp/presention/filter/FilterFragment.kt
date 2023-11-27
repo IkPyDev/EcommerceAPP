@@ -1,6 +1,7 @@
 package com.ikpydev.ecommerceapp.presention.filter
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,8 +86,8 @@ class FilterFragment : Fragment() {
         filter.rating?.let {
             (ratingGroup.getChildAt(it) as RadioButton).isChecked = true
         }
-        filter.discount?.let {
-            (ratingGroup.getChildAt(it) as RadioButton).isChecked = true
+        filter.discount?.let {id ->
+            (discountGroup.getChildAt(id) as RadioButton).isChecked = true
         }
         discountSort.isChecked = filter.sort?.contains(Sort.discount) ?: false
         shippingSort.isChecked = filter.sort?.contains(Sort.shipping) ?: false

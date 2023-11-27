@@ -154,7 +154,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun onClickProduct(product: Product) {
-
+        findNavController().navigate(HomeFragmentDirections.toDetailFragment(product.id))
     }
 
     private fun liked(product: Product) {

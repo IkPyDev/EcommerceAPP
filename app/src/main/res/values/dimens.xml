@@ -6,4 +6,6 @@
     <dimen name="dp_4">4dp</dimen>
     <dimen name="viewpager_next_item_visible">16dp</dimen>
     <dimen name="viewpager_current_item_horizontal_margin">32dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
 </resources>

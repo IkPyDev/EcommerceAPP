@@ -134,7 +134,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun onProductClick(product: Product) {
-
+        findNavController().navigate(SearchFragmentDirections.toDetailFragment(product.id))
     }
 
     private fun like(product: Product) {

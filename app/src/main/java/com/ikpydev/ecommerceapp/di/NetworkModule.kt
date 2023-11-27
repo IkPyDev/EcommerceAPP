@@ -29,6 +29,9 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpCliend() = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor()).build()
+    fun provideOkHttpCliend()=
+        OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .build()
 
 }

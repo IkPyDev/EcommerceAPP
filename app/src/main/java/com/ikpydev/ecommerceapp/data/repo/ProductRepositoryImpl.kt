@@ -4,6 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.liveData
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
+import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
 import com.ikpydev.ecommerceapp.data.api.product.paging.ProductPagingSource
 import com.ikpydev.ecommerceapp.data.store.RecentsStore
@@ -50,6 +51,5 @@ class ProductRepositoryImpl @Inject constructor(
         recentsStore.set(recents.toTypedArray())
     }
 
-
-
+    override suspend fun getProduct(id: String) = productApi.getProduct(id)
 }

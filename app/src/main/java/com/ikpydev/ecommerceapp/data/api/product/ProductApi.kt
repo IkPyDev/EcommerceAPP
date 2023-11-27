@@ -1,9 +1,11 @@
 package com.ikpydev.ecommerceapp.data.api.product
 
 import com.ikpydev.ecommerceapp.data.api.product.dto.Category
+import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ProductApi {
@@ -27,4 +29,10 @@ interface ProductApi {
         @Query("page") page: Int,
         @Query("size") size: Int
     ): List<Product>
+
+
+    @GET("one_product/{id}")
+    suspend fun getProduct(
+        @Path("id") id :String
+    ):Detail
 }

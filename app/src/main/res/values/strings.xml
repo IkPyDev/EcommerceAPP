@@ -71,4 +71,6 @@
     <string name="product_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="related">Related product</string>
     <string name="add_to_cart">add to cart</string>
+    <string name="detail_old_price"><strike>%.2f</strike></string>
+    <string name="detail_product_reviews">%.1f (%d reviews)</string>
 </resources>
