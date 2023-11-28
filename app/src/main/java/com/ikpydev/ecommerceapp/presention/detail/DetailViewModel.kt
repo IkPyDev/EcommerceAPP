@@ -39,12 +39,13 @@ class DetailViewModel @Inject constructor(private val productRepository: Product
         val product = detail.value ?: return
         if (current == product.inStock) return
         current++
+        count.postValue(current)
     }
 
     fun decrement(){
         var current = count.value ?: 1
-        val product = detail.value ?: return
         if (current == 1) return
         current--
+        count.postValue(current)
     }
 }
