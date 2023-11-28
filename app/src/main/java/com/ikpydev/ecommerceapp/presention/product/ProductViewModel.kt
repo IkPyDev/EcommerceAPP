@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
 import com.ikpydev.ecommerceapp.data.api.product.dto.Category
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
@@ -34,7 +35,7 @@ class ProductViewModel @Inject constructor(
 
     fun getProduct() = viewModelScope.launch {
         val query = ProductQuery(category = category.value)
-        productRepository.getProduct(query).collectLatest {
+        productRepository.getProduct(query).cachedIn(viewModelScope).collectLatest {
             product.postValue(it)
         }
 

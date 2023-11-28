@@ -1,29 +1,36 @@
 package com.ikpydev.ecommerceapp.presention.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.CycleInterpolator
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.forEachIndexed
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import androidx.transition.ChangeBounds
+import androidx.transition.Transition
+import androidx.transition.TransitionManager
 import com.ikpydev.ecommerceapp.NavMainDirections
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.ActivityMainBinding
 import com.ikpydev.ecommerceapp.domain.module.Destination
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
     private lateinit var binding: ActivityMainBinding
 
-    val navController get()  = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+    private val navController get()  = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         initUi()
         subscribToLiveData()
     }
@@ -34,10 +41,33 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnItemSelectedListener {
 
             var index:Int = 0
+            navigation.menu.forEachIndexed{itemIndex, item ->
+                if (it.itemId != item.itemId ) return@forEachIndexed
+                index= itemIndex
+            }
+            ConstraintSet().apply {
+                clone(indicatorContainer)
+                setHorizontalBias(indicator.id, index * 0.25f)
+
+                val transition: Transition = ChangeBounds()
+                transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+                transition.duration = 1000
 
 
-            return@setOnItemSelectedListener true
+                TransitionManager.beginDelayedTransition(indicatorContainer, transition)
+
+                applyTo(indicatorContainer)
+
+            }
+
+            NavigationUI.onNavDestinationSelected(
+                it,
+                navController
+            )
+
+            return@setOnItemSelectedListener false
         }
+
 
     }
 

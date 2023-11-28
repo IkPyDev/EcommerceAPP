@@ -91,7 +91,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>(SearchFragmentBinding
             false
         }
 
-        searchContainer.search.setOnFocusChangeListener { view, focused ->
+        searchContainer.search.setOnFocusChangeListener { _, focused ->
             isRecentsVisible(focused)
 
         }

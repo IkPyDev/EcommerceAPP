@@ -107,7 +107,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
             showAll.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.toCategoriesFragment())
             }
-            searchContainer.search.setOnFocusChangeListener { view, focused ->
+            searchContainer.search.setOnFocusChangeListener { _, focused ->
                 if (focused.not()) return@setOnFocusChangeListener
                 findNavController().navigate(HomeFragmentDirections.toSearchFragment())
 
