@@ -21,26 +21,15 @@ import androidx.navigation.fragment.findNavController
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.SingUpFragmentBinding
 import com.ikpydev.ecommerceapp.presention.sign_in.SignInFragmentDirections
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.clearLightStatusBar
 import com.ikpydev.ecommerceapp.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : Fragment() {
-    private lateinit var binding: SingUpFragmentBinding
+class SignUpFragment : BaseFragment<SingUpFragmentBinding>(SingUpFragmentBinding::inflate) {
 
     private val viewModel by viewModels<SignUpViewModel>()
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = SingUpFragmentBinding.inflate(inflater)
-        return binding.root
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

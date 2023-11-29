@@ -151,8 +151,32 @@
 
         <deepLink
             app:uri="https://c5c720cb-0b33-4fd7-85e2-567a41aebaa8.mock.pstmn.io/product/{id}"
-            android:autoVerify="true"/>
+            android:autoVerify="true" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.orders.OrdersFragment"
+        android:label="OrdersFragment"
+        tools:layout="@layout/orders_fragment" />
+
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.card.CardFragment"
+        android:label="CardFragment"
+        tools:layout="@layout/card_fragment" />
+
+    <fragment
+        android:id="@+id/wishlistFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.wishlist.WishlistFragment"
+        android:label="WishlistFragment"
+        tools:layout="@layout/wishlist_fragment" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment" />
 
 </navigation>

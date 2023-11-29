@@ -13,13 +13,13 @@ import androidx.navigation.fragment.navArgs
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.ItemProductBinding
 import com.ikpydev.ecommerceapp.databinding.ProductFragmentBinding
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ProductFragment : Fragment() {
+class ProductFragment : BaseFragment<ProductFragmentBinding>(ProductFragmentBinding::inflate) {
 
-    private lateinit var binding: ProductFragmentBinding
     private val viewModel by viewModels<ProductViewModel>()
     private val adapter by lazy { ProductAdapter(this::onClick,this::liked) }
     private val args by navArgs<ProductFragmentArgs>()
@@ -32,16 +32,6 @@ class ProductFragment : Fragment() {
             viewModel.setLoadStates(it)
         }
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = ProductFragmentBinding.inflate(inflater)
-        return binding.root
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

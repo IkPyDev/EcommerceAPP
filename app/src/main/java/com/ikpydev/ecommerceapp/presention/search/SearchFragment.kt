@@ -23,6 +23,7 @@ import com.ikpydev.ecommerceapp.presention.home.HomeFragmentDirections
 import com.ikpydev.ecommerceapp.presention.search.SearchFragmentDirections.toFilterFragment
 import com.ikpydev.ecommerceapp.presention.search.adapter.RecentsAdapter
 import com.ikpydev.ecommerceapp.presention.search.adapter.SearchProductAdapter
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.hideKeyboard
 import com.ikpydev.ecommerceapp.utils.showKeyboard
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,9 +31,8 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class SearchFragment : Fragment() {
+class SearchFragment : BaseFragment<SearchFragmentBinding>(SearchFragmentBinding::inflate) {
 
-    private lateinit var binding: SearchFragmentBinding
     private val viewModel by viewModels<SearchViewModel>()
     private val args by navArgs<SearchFragmentArgs>()
     private val adapter by lazy { SearchProductAdapter(this::onProductClick, this::like) }
@@ -44,16 +44,6 @@ class SearchFragment : Fragment() {
             viewModel.setLoadStates(it)
         }
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = SearchFragmentBinding.inflate(inflater)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()

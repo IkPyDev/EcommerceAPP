@@ -22,6 +22,7 @@ import com.ikpydev.ecommerceapp.databinding.HomeFragmentBinding
 import com.ikpydev.ecommerceapp.presention.home.adapter.BannerAdapter
 import com.ikpydev.ecommerceapp.presention.home.adapter.HomeCategoryAdapter
 import com.ikpydev.ecommerceapp.presention.home.adapter.SectionAdapter
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.HorizontalMarginItemDecoration
 import com.ikpydev.ecommerceapp.utils.setLightStatusBar
 import com.zhpan.indicator.enums.IndicatorSlideMode
@@ -30,19 +31,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::inflate) {
 
     private val viewModel by viewModels<HomeViewModel>()
-
-    private lateinit var binding: HomeFragmentBinding
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = HomeFragmentBinding.inflate(inflater)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

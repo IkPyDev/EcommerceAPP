@@ -73,4 +73,9 @@
     <string name="add_to_cart">add to cart</string>
     <string name="detail_old_price"><strike>%.2f</strike></string>
     <string name="detail_product_reviews">%.1f (%d reviews)</string>
+    <string name="navigation_title_home">Home</string>
+    <string name="navigation_title_orders">Orders</string>
+    <string name="navigation_title_buy">Card</string>
+    <string name="navigation_title_wishlist">Wishlist</string>
+    <string name="navigation_title_profile">Profile</string>
 </resources>

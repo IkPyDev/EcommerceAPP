@@ -13,28 +13,17 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.OnboardingFragmentBinding
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.clearLightStatusBar
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OnboardingFragment : Fragment() {
+class OnboardingFragment : BaseFragment<OnboardingFragmentBinding>(OnboardingFragmentBinding::inflate) {
 
-    private lateinit var binding: OnboardingFragmentBinding
     private val viewModel by viewModels<OnboardingViewModel>()
-
     private val adapter = OnboardingAdapter()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = OnboardingFragmentBinding.inflate(inflater)
-
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -21,23 +21,14 @@ import com.ikpydev.ecommerceapp.databinding.FilterFragmentBinding
 import com.ikpydev.ecommerceapp.databinding.ItemRadioButtonBinding
 import com.ikpydev.ecommerceapp.domain.module.ProductQuery
 import com.ikpydev.ecommerceapp.domain.module.Sort
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FilterFragment : Fragment() {
+class FilterFragment : BaseFragment<FilterFragmentBinding>(FilterFragmentBinding::inflate) {
 
-    private lateinit var binding: FilterFragmentBinding
     private val viewModel by viewModels<FilterViewModel>()
     private val args by navArgs<FilterFragmentArgs>()
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = FilterFragmentBinding.inflate(inflater)
-        return binding.root
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -13,22 +13,14 @@ import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.SingInFragmentBinding
 import com.ikpydev.ecommerceapp.presention.sign_up.SignUpFragment
 import com.ikpydev.ecommerceapp.presention.sign_up.SignUpFragmentDirections
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.clearLightStatusBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInFragment : Fragment() {
+class SignInFragment : BaseFragment<SingInFragmentBinding>(SingInFragmentBinding::inflate) {
 
-    private lateinit var binding: SingInFragmentBinding
     private val viewModel by viewModels<SignInViewModel>()
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = SingInFragmentBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -10,22 +10,16 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ikpydev.ecommerceapp.data.api.product.dto.Category
 import com.ikpydev.ecommerceapp.databinding.CategoriesFragmentBinding
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CategoriesFragment : Fragment() {
+class CategoriesFragment : BaseFragment<CategoriesFragmentBinding>(CategoriesFragmentBinding::inflate) {
 
 
-    private lateinit var binding: CategoriesFragmentBinding
 
     private val viewModel by viewModels<CategoriesViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        binding = CategoriesFragmentBinding.inflate(inflater)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

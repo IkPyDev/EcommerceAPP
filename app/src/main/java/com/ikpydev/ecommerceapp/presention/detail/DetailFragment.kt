@@ -16,14 +16,14 @@ import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.common.Constats
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.DetailFragmentBinding
+import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : Fragment() {
+class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding::inflate) {
 
-    private lateinit var binding: DetailFragmentBinding
     private val viewModel by viewModels<DetailViewModel>()
     private val args by navArgs<DetailFragmentArgs>()
 
@@ -32,16 +32,6 @@ class DetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel.getProduct(args.id)
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = DetailFragmentBinding.inflate(inflater)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()

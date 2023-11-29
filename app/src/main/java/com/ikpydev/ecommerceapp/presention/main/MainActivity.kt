@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.ikpydev.ecommerceapp.NavMainDirections
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.ActivityMainBinding
@@ -23,11 +24,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         window.decorView.systemUiVisibility =
             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-
-        subscibToLiveData()
+        initUi()
+        subscribToLiveData()
     }
 
-    private fun subscibToLiveData() {
+    private fun initUi() = with(binding) {
+        navigation.setupWithNavController(navController)
+
+        navigation.setOnItemSelectedListener {
+
+            var index:Int = 0
+
+
+            return@setOnItemSelectedListener true
+        }
+
+    }
+
+    private fun subscribToLiveData() {
         viewModel.events.observe(this) {
 
             when (it) {
