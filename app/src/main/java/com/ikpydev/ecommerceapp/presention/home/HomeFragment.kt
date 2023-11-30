@@ -109,7 +109,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
             }
             searchContainer.search.setOnFocusChangeListener { _, focused ->
                 if (focused.not()) return@setOnFocusChangeListener
-                findNavController().navigate(HomeFragmentDirections.toSearchFragment())
+                findNavController().navigate(HomeFragmentDirections.toOnboardingFragment())
 
             }
             indicator.setupWithViewPager(banners)

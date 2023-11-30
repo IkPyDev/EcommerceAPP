@@ -59,6 +59,9 @@
         <action
             android:id="@+id/to_detailFragment"
             app:destination="@+id/detailFragment" />
+        <action
+            android:id="@+id/tosearchFragment"
+            app:destination="@id/SearchFragment"/>
 
 
     </fragment>
