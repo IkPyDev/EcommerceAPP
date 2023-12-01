@@ -47,6 +47,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
         error.retry.setOnClickListener {
             viewModel.getHome()
         }
+        searchContainer.search.clearFocus()
         indicator.apply {
             val normalColor = ContextCompat.getColor(requireContext(), R.color.indicator_unchecked)
             val checkedColor = ContextCompat.getColor(requireContext(), R.color.indicator_checked)
@@ -109,7 +110,11 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
             }
             searchContainer.search.setOnFocusChangeListener { _, focused ->
                 if (focused.not()) return@setOnFocusChangeListener
-                findNavController().navigate(HomeFragmentDirections.toOnboardingFragment())
+                try {
+                    findNavController().navigate(HomeFragmentDirections.toSearchFragment())
+                }catch (e:Exception){
+                    Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
+                }
 
             }
             indicator.setupWithViewPager(banners)
