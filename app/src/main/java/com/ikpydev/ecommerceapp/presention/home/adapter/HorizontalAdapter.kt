@@ -1,6 +1,5 @@
 package com.ikpydev.ecommerceapp.presention.home.adapter
 
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -14,7 +13,7 @@ import com.ikpydev.ecommerceapp.databinding.ItemProductHorizontalSectionBinding
 class HorizontalAdapter(
     private val product: List<Product>,
     private val onClick: (product: Product) -> Unit,
-    private val liked: (product: Product) -> Unit
+    private val wishlist: (product: Product) -> Unit
 ) : RecyclerView.Adapter<HorizontalAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemProductHorizontalSectionBinding) :
@@ -48,16 +47,16 @@ class HorizontalAdapter(
             }
             fun setLike() {
                 val liked =
-                    if (product.favorite) R.drawable.ic_heart_cheked else R.drawable.ic_heart_uncheked
-                like.setImageResource(liked)
+                    if (product.wishlist) R.drawable.ic_heart_cheked else R.drawable.ic_heart_uncheked
+                favorite.setImageResource(liked)
             }
             setLike()
 
 
-            like.setOnClickListener {
-                product.favorite = product.favorite.not()
+            favorite.setOnClickListener {
+                product.wishlist = product.wishlist.not()
                 setLike()
-                liked(product)
+                wishlist(product)
             }
 
         }

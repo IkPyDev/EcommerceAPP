@@ -11,7 +11,7 @@ data class Detail(
     @SerializedName("discription")
     val discription: String,
     @SerializedName("favorite")
-    val favorite: Boolean,
+    val wishlist: Boolean,
     @SerializedName("id")
     val id: String,
     @SerializedName("images")

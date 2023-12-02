@@ -9,7 +9,7 @@ import com.ikpydev.ecommerceapp.databinding.ItemProductBinding
 
 class ProductAdapter(
     private val onClick: (product: Product) -> Unit,
-    private val liked: (product: Product) -> Unit,
+    private val wishlist: (product: Product) -> Unit,
 
     ) : PagingDataAdapter<Product, ProductViewHolder>(DIF_UTIL) {
 
@@ -23,7 +23,7 @@ class ProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(getItem(position) ?: return ,onClick, liked)
+        holder.bind(getItem(position) ?: return ,onClick, wishlist)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ProductViewHolder(

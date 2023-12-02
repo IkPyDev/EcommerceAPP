@@ -9,7 +9,7 @@ data class Product(
     @SerializedName("discount")
     val discount: Double?,
     @SerializedName("favorite")
-    var favorite: Boolean,
+    var wishlist: Boolean,
     @SerializedName("image")
     val image: String,
     @SerializedName("price")

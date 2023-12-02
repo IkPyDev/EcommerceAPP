@@ -11,7 +11,8 @@ data class ProductQuery(
     val range :Pair<Float,Float> = 0f to 1000f,
     val rating : Int? = null,
     val discount :Int?= null,
-    val sort :List<Sort>? = emptyList()
+    val sort :List<Sort>? = emptyList(),
+    val wishlist :Boolean?= null
 ) : Parcelable
 
 enum class Sort{

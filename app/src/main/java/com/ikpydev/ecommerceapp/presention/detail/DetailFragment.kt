@@ -1,14 +1,11 @@
 package com.ikpydev.ecommerceapp.presention.detail
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -71,6 +68,10 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding
                 .startChooser();
         }
 
+        favorite.setOnClickListener {
+            viewModel.toggleWishlist()
+        }
+
     }
 
     private fun subscribeToLiveData() = with(binding) {
@@ -84,9 +85,9 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding
         }
 
         viewModel.detail.observe(viewLifecycleOwner) {
-            val color = if (it.favorite) R.color.orange else R.color.dark_text
+            val color = if (it.wishlist) R.color.orange else R.color.dark_text
             val res = ResourcesCompat.getColor(resources, color, null)
-            like.setColorFilter(res)
+            favorite.setColorFilter(res)
 
             banners.adapter = DetailAdapter(it.images)
             indicator.setupWithViewPager(banners)
@@ -110,6 +111,9 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding
         viewModel.count.observe(viewLifecycleOwner) {
             item.text = it.toString()
         }
+        viewModel.wishlist.observe(viewLifecycleOwner){
+            setWishlist(it)
+        }
     }
 
     private fun DetailFragmentBinding.setButtonVisibility() {
@@ -120,5 +124,11 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding
 
     private fun onClick(product: Product) {
         findNavController().navigate(DetailFragmentDirections.toDetailFragment(product.id))
+    }
+
+    private fun setWishlist(wishlist:Boolean) = with(binding){
+        val color = if (wishlist) R.color.orange else R.color.dark_text
+        val resolved = ContextCompat.getColor(requireContext(),color)
+        favorite.setColorFilter(resolved)
     }
 }

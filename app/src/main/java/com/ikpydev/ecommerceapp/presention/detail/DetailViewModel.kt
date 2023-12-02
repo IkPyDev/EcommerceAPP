@@ -7,7 +7,6 @@ import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.domain.repo.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.net.IDN
 import javax.inject.Inject
 
 
@@ -17,6 +16,7 @@ class DetailViewModel @Inject constructor(private val productRepository: Product
 
 
     val loading = MutableLiveData(false)
+    val wishlist = MutableLiveData(false)
     val error = MutableLiveData(false)
     val detail = MutableLiveData<Detail>()
     val count =MutableLiveData(1)
@@ -27,6 +27,7 @@ class DetailViewModel @Inject constructor(private val productRepository: Product
         try {
             val result = productRepository.getProduct(id)
             detail.postValue(result)
+            wishlist.postValue(result.wishlist)
         } catch (e: Exception) {
             error.postValue(true)
         } finally {
@@ -47,5 +48,15 @@ class DetailViewModel @Inject constructor(private val productRepository: Product
         if (current == 1) return
         current--
         count.postValue(current)
+    }
+
+    fun toggleWishlist() = viewModelScope.launch{
+        val wishlistValue = wishlist.value ?: return@launch
+       wishlist.postValue(wishlistValue.not())
+        try {
+            productRepository.toggleWishlist(detail.value!!.id,wishlistValue.not())
+        }catch (e:Exception){
+
+        }
     }
 }

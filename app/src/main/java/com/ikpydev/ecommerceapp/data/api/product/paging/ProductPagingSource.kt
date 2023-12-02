@@ -13,7 +13,6 @@ class ProductPagingSource(
     override fun getRefreshKey(state: PagingState<Int, Product>): Int? = null
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Product> {
-
         return try {
             val key = params.key ?: 0
 
@@ -25,6 +24,7 @@ class ProductPagingSource(
                 rating = query.rating,
                 discount = query.discount,
                 sort = query.sort?.joinToString(),
+                favorite = query.wishlist,
                 page = key,
                 size = params.loadSize
             )

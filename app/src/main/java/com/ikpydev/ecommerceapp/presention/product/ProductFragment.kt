@@ -1,17 +1,13 @@
 package com.ikpydev.ecommerceapp.presention.product
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
-import com.ikpydev.ecommerceapp.databinding.ItemProductBinding
 import com.ikpydev.ecommerceapp.databinding.ProductFragmentBinding
 import com.ikpydev.ecommerceapp.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +17,7 @@ import kotlinx.coroutines.launch
 class ProductFragment : BaseFragment<ProductFragmentBinding>(ProductFragmentBinding::inflate) {
 
     private val viewModel by viewModels<ProductViewModel>()
-    private val adapter by lazy { ProductAdapter(this::onClick,this::liked) }
+    private val adapter by lazy { ProductAdapter(this::onClick,this::wishlist) }
     private val args by navArgs<ProductFragmentArgs>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +70,7 @@ class ProductFragment : BaseFragment<ProductFragmentBinding>(ProductFragmentBind
         findNavController().navigate(ProductFragmentDirections.toDetailFragment(product.id))
     }
 
-    private fun liked(product: Product) {
-
+    private fun wishlist(product: Product) {
+        viewModel.toggleWishlist(product)
     }
 }

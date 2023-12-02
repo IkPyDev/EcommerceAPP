@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
+import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.domain.repo.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -38,6 +39,14 @@ class HomeViewModel @Inject constructor(
             loading.postValue(false)
 
         }
+    }
+    fun toggleWishlist(product: Product)= viewModelScope.launch{
+        try {
+            productRepository.toggleWishlist(product.id,product.wishlist)
+        }catch (e:Exception){
+            Log.d("TAG", "getToggleWishlist: ")
+        }
+
     }
 
 }

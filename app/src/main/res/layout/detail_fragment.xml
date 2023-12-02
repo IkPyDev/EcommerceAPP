@@ -46,7 +46,7 @@
                 />
 
             <ImageView
-                android:id="@+id/like"
+                android:id="@+id/favorite"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginEnd="26dp"

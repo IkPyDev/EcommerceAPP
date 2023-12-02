@@ -6,6 +6,7 @@ import androidx.paging.liveData
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
 import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
+import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.data.api.product.paging.ProductPagingSource
 import com.ikpydev.ecommerceapp.data.store.RecentsStore
 import com.ikpydev.ecommerceapp.data.store.UserStore
@@ -27,7 +28,7 @@ class ProductRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getCategories() = productApi.getCategories()
-    override fun getProduct(query: ProductQuery) = Pager(
+    override fun getProducts(query: ProductQuery) = Pager(
         config = PagingConfig(
             pageSize = 10,
             prefetchDistance = 10,
@@ -49,6 +50,10 @@ class ProductRepositoryImpl @Inject constructor(
         recents.remove(search)
         recents.add(0, search)
         recentsStore.set(recents.toTypedArray())
+    }
+
+    override suspend fun toggleWishlist(productId: String, wishlist: Boolean) {
+        productApi.toggleWishlist(productId,wishlist)
     }
 
     override suspend fun getProduct(id: String) = productApi.getProduct(id)

@@ -96,6 +96,10 @@
         android:name="com.ikpydev.ecommerceapp.presention.search.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/search_fragment">
+        <argument
+            android:name="wishlist"
+            app:argType="boolean"
+            android:defaultValue="false"/>
 
         <argument
             android:name="category"
@@ -173,7 +177,24 @@
         android:id="@+id/wishlistFragment"
         android:name="com.ikpydev.ecommerceapp.presention.wishlist.WishlistFragment"
         android:label="WishlistFragment"
-        tools:layout="@layout/wishlist_fragment" />
+        tools:layout="@layout/wishlist_fragment" >
+        <action
+            android:id="@+id/to_detailFragment"
+            app:destination="@id/detailFragment"/>
+
+        <action
+            android:id="@+id/to_searchFragment"
+            app:destination="@+id/searchFragment">
+
+            <argument
+                android:name="wishlist"
+                app:argType="boolean"
+                android:defaultValue="true"/>
+
+        </action>
+
+
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"

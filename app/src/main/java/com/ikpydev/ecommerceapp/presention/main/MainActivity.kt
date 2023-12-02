@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
 import android.view.animation.CycleInterpolator
+import android.view.animation.DecelerateInterpolator
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.forEachIndexed
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 setHorizontalBias(indicator.id, index * 0.25f)
 
                 val transition: Transition = ChangeBounds()
-                transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+                transition.interpolator = DecelerateInterpolator(1.0f)
                 transition.duration = 1000
 
 
@@ -66,6 +68,14 @@ class MainActivity : AppCompatActivity() {
             )
 
             return@setOnItemSelectedListener false
+        }
+        navController.addOnDestinationChangedListener { _,destination,_ ->
+            navigation.isVisible = listOf(
+                R.id.onboardingFragment,
+                R.id.signUpFragment,
+                R.id.singInFragment,
+                R.id.detailFragment
+            ).all { it !=destination.id }
         }
 
 

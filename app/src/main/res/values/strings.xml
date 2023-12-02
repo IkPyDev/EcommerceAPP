@@ -78,4 +78,5 @@
     <string name="navigation_title_buy">Card</string>
     <string name="navigation_title_wishlist">Wishlist</string>
     <string name="navigation_title_profile">Profile</string>
+    <string name="wishlist_title">Wishlists</string>
 </resources>

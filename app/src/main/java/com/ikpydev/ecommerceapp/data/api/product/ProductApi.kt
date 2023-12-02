@@ -26,6 +26,7 @@ interface ProductApi {
         @Query("rating") rating :Int?,
         @Query("discount") discount : Int?,
         @Query("sort") sort:String?,
+        @Query("favorite") favorite :Boolean?,
         @Query("page") page: Int,
         @Query("size") size: Int
     ): List<Product>
@@ -35,4 +36,10 @@ interface ProductApi {
     suspend fun getProduct(
         @Path("id") id :String
     ):Detail
+
+    @GET("product/{id}/toggle-wishlist")
+    suspend fun toggleWishlist(
+        @Path("id") id :String,
+        @Query("wishlist") wishlist:Boolean
+    )
 }

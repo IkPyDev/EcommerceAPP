@@ -13,7 +13,7 @@ class SectionAdapter(
     private val section: List<Section>,
     private val showAll: (section: Section) -> Unit,
     private val onClick: (product: Product) -> Unit,
-    private val liked: (product: Product) -> Unit
+    private val wishlist: (product: Product) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class HorizontalHolder(private val binding: ItemSectionHorizantalBinding) :
@@ -26,7 +26,7 @@ class SectionAdapter(
                 this@SectionAdapter.showAll(section)
 
             }
-            products.adapter = HorizontalAdapter(section.products, onClick, liked)
+            products.adapter = HorizontalAdapter(section.products, onClick, wishlist)
 
         }
     }
@@ -41,7 +41,7 @@ class SectionAdapter(
                 this@SectionAdapter.showAll(section)
 
             }
-            products.adapter = VerticalAdapter(section.products, onClick, liked)
+            products.adapter = VerticalAdapter(section.products, onClick, wishlist)
 
 
         }

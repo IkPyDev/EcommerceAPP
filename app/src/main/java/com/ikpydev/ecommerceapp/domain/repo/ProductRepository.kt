@@ -11,11 +11,12 @@ import kotlinx.coroutines.flow.Flow
 interface ProductRepository {
     suspend fun getHome(): HomeResponse
     suspend fun getCategories(): List<Category>
-    fun getProduct(query: ProductQuery): Flow<PagingData<Product>>
+    fun getProducts(query: ProductQuery): Flow<PagingData<Product>>
 
     fun getRecents(): Flow<List<String>>
     suspend fun clearRecents()
     suspend fun addRecent(search:String)
-    suspend fun getProduct(id:String):Detail
+    suspend fun getProduct(id: String): Detail
+    suspend fun toggleWishlist(productId: String, wishlist: Boolean)
 
 }

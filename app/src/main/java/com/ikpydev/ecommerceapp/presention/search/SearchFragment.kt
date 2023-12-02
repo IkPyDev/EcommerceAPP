@@ -1,14 +1,9 @@
 package com.ikpydev.ecommerceapp.presention.search
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView.OnEditorActionListener
-import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,13 +14,11 @@ import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.SearchFragmentBinding
 import com.ikpydev.ecommerceapp.domain.module.ProductQuery
 import com.ikpydev.ecommerceapp.presention.filter.FilterFragment
-import com.ikpydev.ecommerceapp.presention.home.HomeFragmentDirections
 import com.ikpydev.ecommerceapp.presention.search.SearchFragmentDirections.toFilterFragment
 import com.ikpydev.ecommerceapp.presention.search.adapter.RecentsAdapter
 import com.ikpydev.ecommerceapp.presention.search.adapter.SearchProductAdapter
 import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.hideKeyboard
-import com.ikpydev.ecommerceapp.utils.showKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -39,7 +32,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>(SearchFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        args.category?.let { viewModel.setCategory(it) }
+        viewModel.setInitials(args.category, args.wishlist)
         adapter.addLoadStateListener {
             viewModel.setLoadStates(it)
         }

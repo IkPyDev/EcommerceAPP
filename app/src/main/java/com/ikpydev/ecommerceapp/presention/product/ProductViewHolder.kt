@@ -13,7 +13,7 @@ class ProductViewHolder(private val binding: ItemProductBinding) :
     fun bind(
         product: Product,
         onClick: (product: Product) -> Unit,
-        liked: (product: Product) -> Unit
+        wishlist: (product: Product) -> Unit
     ) = with(binding) {
         Glide.with(root).load(product.image).into(image)
 
@@ -44,16 +44,16 @@ class ProductViewHolder(private val binding: ItemProductBinding) :
         }
         fun setLike() {
             val liked =
-                if (product.favorite) R.drawable.ic_heart_cheked else R.drawable.ic_heart_uncheked
-            binding.like.setImageResource(liked)
+                if (product.wishlist) R.drawable.ic_heart_cheked else R.drawable.ic_heart_uncheked
+            binding.favorite.setImageResource(liked)
         }
         setLike()
 
 
-        binding.like.setOnClickListener {
-            product.favorite = product.favorite.not()
+        favorite.setOnClickListener {
+            product.wishlist = product.wishlist.not()
             setLike()
-            liked(product)
+            wishlist(product)
         }
 
     }

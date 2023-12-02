@@ -35,14 +35,15 @@ class SearchViewModel @Inject constructor(
 
 
     fun getProduct() = viewModelScope.launch {
-        productRepository.getProduct(query.value!!).cachedIn(viewModelScope).collectLatest {
+        productRepository.getProducts(query.value!!).cachedIn(viewModelScope).collectLatest {
             product.postValue(it)
         }
     }
 
 
-    fun setCategory(category: Category) {
-        query.postValue(query.value?.copy(category = category))
+    fun setInitials(category: Category?, wishlist: Boolean) {
+        query.postValue(query.value?.copy(category = category, wishlist = wishlist))
+        getProduct()
     }
 
     fun setSearch(search: String) {
