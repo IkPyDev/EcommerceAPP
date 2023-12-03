@@ -79,4 +79,16 @@
     <string name="navigation_title_wishlist">Wishlist</string>
     <string name="navigation_title_profile">Profile</string>
     <string name="wishlist_title">Wishlists</string>
+    <string name="card_shoping">Shopping Cart\n</string>
+    <string name="card_shopping">Shopping Cart</string>
+    <string name="card_shopping_title">Shopping Cart</string>
+    <string name="fragment_cart_title">Shopping Cart</string>
+    <string name="cardbill_details">Bill Details</string>
+    <string name="card_bill_details">Bill Details</string>
+    <string name="card_item_total">Item Total</string>
+    <string name="card_price">$ %.2f</string>
+    <string name="card_price_plus">+ $ %.2f</string>
+    <string name="card_delivery">"Delivery Fee "</string>
+    <string name="card_tax">Texes and Charge</string>
+    <string name="card_orderTitle">Order Total</string>
 </resources>
