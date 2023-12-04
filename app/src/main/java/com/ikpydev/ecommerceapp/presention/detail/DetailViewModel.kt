@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
+import com.ikpydev.ecommerceapp.domain.module.Cart
 import com.ikpydev.ecommerceapp.domain.repo.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -58,5 +59,19 @@ class DetailViewModel @Inject constructor(private val productRepository: Product
         }catch (e:Exception){
 
         }
+    }
+    fun set()=viewModelScope.launch {
+        val detail = this@DetailViewModel.detail.value ?: return@launch
+        val cart = Cart(
+            id = detail.id,
+            title = detail.title,
+            image = detail.images.first(),
+            category = detail.category,
+            price = detail.price,
+            discount = detail.discount,
+            count = count.value ?: return@launch,
+            stock = detail.inStock
+        )
+        productRepository.setCart(cart)
     }
 }

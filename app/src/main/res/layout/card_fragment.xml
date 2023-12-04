@@ -33,6 +33,7 @@
         app:layout_goneMarginStart="32dp" />
 
     <ImageView
+        android:id="@+id/delete"
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_marginEnd="27dp"
@@ -206,7 +207,7 @@
 
 
             <TextView
-                android:id="@+id/order"
+                android:id="@+id/orderTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -220,8 +221,125 @@
 
                 />
 
+            <TextView
+                android:id="@+id/order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/semis_bold"
+                android:text="@string/card_price"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+
+                />
+
+            <EditText
+                android:id="@+id/promo"
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:layout_marginTop="34dp"
+                android:background="@drawable/search_background"
+                android:layout_marginHorizontal="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:drawableStart="@drawable/ic_coupon"
+                android:drawablePadding="11dp"
+                android:textColorHint="@color/soft_gray"
+                android:paddingStart="19dp"
+                android:paddingEnd="115dp"
+                android:hint="@string/card_promo_hind"
+                android:fontFamily="@font/reguler"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/order"
+                app:layout_constraintBottom_toTopOf="@id/checkout"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/apply"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:background="@drawable/button_backgound_18"
+                android:backgroundTint="@null"
+                android:layout_marginEnd="20dp"
+                app:backgroundTint="@null"
+                android:fontFamily="@font/semis_bold"
+                android:textSize="14sp"
+
+
+                android:text="@string/card_apply"
+                app:layout_constraintEnd_toEndOf="@id/promo"
+                app:layout_constraintTop_toTopOf="@id/promo"
+                app:layout_constraintBottom_toBottomOf="@id/promo"
+                tools:layout_editor_absoluteX="32dp" />
+            <ProgressBar
+                android:id="@+id/progress_apply"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:elevation="4dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/white"
+                android:indeterminateTintMode="src_atop"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/apply"
+                app:layout_constraintEnd_toEndOf="@id/apply"
+                app:layout_constraintStart_toStartOf="@id/apply"
+                app:layout_constraintTop_toTopOf="@id/apply" />
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/checkout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/promo"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_backgound"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null"
+                android:fontFamily="@font/extra_bold"
+                android:textSize="16sp"
+
+
+                android:text="@string/card_checkout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="32dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/white"
+                android:indeterminateTintMode="src_atop"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/checkout"
+                app:layout_constraintEnd_toEndOf="@id/checkout"
+                app:layout_constraintStart_toStartOf="@id/checkout"
+                app:layout_constraintTop_toTopOf="@id/checkout" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/medium"
+        android:text="@string/fragment_cart_empty"
+        android:textColor="@color/soft_gray"
+        android:textSize="28sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

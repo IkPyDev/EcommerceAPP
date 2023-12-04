@@ -5,6 +5,7 @@ import com.ikpydev.ecommerceapp.data.api.product.dto.Category
 import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
+import com.ikpydev.ecommerceapp.domain.module.Cart
 import com.ikpydev.ecommerceapp.domain.module.ProductQuery
 import kotlinx.coroutines.flow.Flow
 
@@ -18,5 +19,9 @@ interface ProductRepository {
     suspend fun addRecent(search:String)
     suspend fun getProduct(id: String): Detail
     suspend fun toggleWishlist(productId: String, wishlist: Boolean)
+
+    suspend fun setCart(cart:Cart)
+    fun getCart() :Flow<List<Cart>>
+    suspend fun clearCart()
 
 }

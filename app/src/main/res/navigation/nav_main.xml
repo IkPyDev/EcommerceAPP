@@ -171,7 +171,14 @@
         android:id="@+id/cardFragment"
         android:name="com.ikpydev.ecommerceapp.presention.card.CardFragment"
         android:label="CardFragment"
-        tools:layout="@layout/card_fragment" />
+        tools:layout="@layout/card_fragment" >
+
+        <action
+            android:id="@+id/to_detailFragment"
+            app:destination="@id/detailFragment"/>
+
+
+    </fragment>
 
     <fragment
         android:id="@+id/wishlistFragment"

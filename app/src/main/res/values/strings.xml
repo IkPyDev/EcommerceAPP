@@ -88,7 +88,16 @@
     <string name="card_item_total">Item Total</string>
     <string name="card_price">$ %.2f</string>
     <string name="card_price_plus">+ $ %.2f</string>
+    <string name="card_price_minus">- $ %.2f</string>
     <string name="card_delivery">"Delivery Fee "</string>
     <string name="card_tax">Texes and Charge</string>
     <string name="card_orderTitle">Order Total</string>
+    <string name="card_checkout">checkout</string>
+    <string name="card_apply">Apply</string>
+    <string name="card_promo_hind">Promo Code</string>
+    <string name="fragment_cart_empty">Cart is empty</string>
+    <string name="detail_add_cart">Item added to cart</string>
+    <string name="card_billing_error">Error getting billing details</string>
+    <string name="card_order_error">Error creating order</string>
+    <string name="card_create">Order successfully created</string>
 </resources>

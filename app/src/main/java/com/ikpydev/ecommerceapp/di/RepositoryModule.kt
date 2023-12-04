@@ -1,8 +1,10 @@
 package com.ikpydev.ecommerceapp.di
 
 import com.ikpydev.ecommerceapp.data.repo.AuthRepositoryImpl
+import com.ikpydev.ecommerceapp.data.repo.OrderRepositoryImpl
 import com.ikpydev.ecommerceapp.data.repo.ProductRepositoryImpl
 import com.ikpydev.ecommerceapp.domain.repo.AuthRepository
+import com.ikpydev.ecommerceapp.domain.repo.OrderRepository
 import com.ikpydev.ecommerceapp.domain.repo.ProductRepository
 import dagger.Binds
 import dagger.Module
@@ -23,4 +25,9 @@ abstract class RepositoryModule {
     abstract fun bindProductRepositoryImpl(
         productRepositoryImpl: ProductRepositoryImpl
     ): ProductRepository
+
+    @Binds
+    abstract fun bindOrderRepositoryImpl(
+        orderRepositoryImpl: OrderRepositoryImpl
+    ): OrderRepository
 }

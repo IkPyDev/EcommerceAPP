@@ -2,24 +2,24 @@ package com.ikpydev.ecommerceapp.data.repo
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.liveData
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
-import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
-import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.data.api.product.paging.ProductPagingSource
+import com.ikpydev.ecommerceapp.data.store.CartStore
 import com.ikpydev.ecommerceapp.data.store.RecentsStore
 import com.ikpydev.ecommerceapp.data.store.UserStore
+import com.ikpydev.ecommerceapp.domain.module.Cart
 import com.ikpydev.ecommerceapp.domain.module.ProductQuery
 import com.ikpydev.ecommerceapp.domain.repo.ProductRepository
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class ProductRepositoryImpl @Inject constructor(
     private val productApi: ProductApi,
     private val userStore: UserStore,
-    private val recentsStore: RecentsStore
+    private val recentsStore: RecentsStore,
+    private val cartStore : CartStore
 ) : ProductRepository {
     override suspend fun getHome(): HomeResponse {
         val response = productApi.getHome()
@@ -55,6 +55,21 @@ class ProductRepositoryImpl @Inject constructor(
     override suspend fun toggleWishlist(productId: String, wishlist: Boolean) {
         productApi.toggleWishlist(productId,wishlist)
     }
+
+    override suspend fun setCart(cart: Cart) {
+        val carts = (cartStore.get() ?: emptyArray())
+            .toList()
+            .filterNot { it.id == cart.id }
+            .toMutableList()
+        if (cart.count > 0){
+            carts.add(cart)
+        }
+        cartStore.set(carts.toTypedArray())
+    }
+
+    override fun getCart(): Flow<List<Cart>>  =cartStore.getFlow().map { it?.toList() ?: emptyList() }
+
+    override suspend fun clearCart() = cartStore.clear()
 
     override suspend fun getProduct(id: String) = productApi.getProduct(id)
 }

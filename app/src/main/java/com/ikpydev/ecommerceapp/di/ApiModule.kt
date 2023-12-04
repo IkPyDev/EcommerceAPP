@@ -1,6 +1,7 @@
 package com.ikpydev.ecommerceapp.di
 
 import com.ikpydev.ecommerceapp.data.api.auth.AuthApi
+import com.ikpydev.ecommerceapp.data.api.order.OrderApi
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
 import dagger.Module
 import dagger.Provides
@@ -21,4 +22,8 @@ object ApiModule {
     @Provides
     @Singleton
     fun provideProductApi(retrofit: Retrofit) = retrofit.create(ProductApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideOrderApi(retrofit: Retrofit) = retrofit.create(OrderApi::class.java)
 }
