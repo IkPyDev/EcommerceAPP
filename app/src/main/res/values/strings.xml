@@ -100,4 +100,7 @@
     <string name="card_billing_error">Error getting billing details</string>
     <string name="card_order_error">Error creating order</string>
     <string name="card_create">Order successfully created</string>
+    <string name="fragment_orders_title">My Orders</string>
+    <string name="item_order_id">Order id %d</string>
+    <string name="order_count">%d Items</string>
 </resources>
