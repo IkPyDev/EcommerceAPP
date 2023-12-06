@@ -1,9 +1,13 @@
 package com.ikpydev.ecommerceapp.data.repo
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.ikpydev.ecommerceapp.data.api.order.OrderApi
 import com.ikpydev.ecommerceapp.data.api.order.dto.CartDto
 import com.ikpydev.ecommerceapp.data.api.order.dto.CartRequest
+import com.ikpydev.ecommerceapp.data.api.order.paging.OrderPagingSource
 import com.ikpydev.ecommerceapp.data.store.CartStore
+import com.ikpydev.ecommerceapp.domain.module.Status
 import com.ikpydev.ecommerceapp.domain.repo.OrderRepository
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -35,4 +39,9 @@ class OrderRepositoryImpl @Inject constructor(
         orderApi.createOrder(request)
         cartStore.clear()
     }
+    override fun getOrders(status: Status) = Pager(
+        config = PagingConfig(pageSize = 10, prefetchDistance = 20, enablePlaceholders = false),
+        initialKey = 0,
+        pagingSourceFactory = { OrderPagingSource(status, orderApi) }
+    ).flow
 }

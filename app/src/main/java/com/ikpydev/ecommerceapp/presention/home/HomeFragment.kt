@@ -20,7 +20,6 @@ import com.ikpydev.ecommerceapp.presention.home.adapter.HomeCategoryAdapter
 import com.ikpydev.ecommerceapp.presention.home.adapter.SectionAdapter
 import com.ikpydev.ecommerceapp.utils.BaseFragment
 import com.ikpydev.ecommerceapp.utils.HorizontalMarginItemDecoration
-import com.ikpydev.ecommerceapp.utils.hideKeyboard
 import com.ikpydev.ecommerceapp.utils.setLightStatusBar
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle

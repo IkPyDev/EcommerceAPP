@@ -103,4 +103,16 @@
     <string name="fragment_orders_title">My Orders</string>
     <string name="item_order_id">Order id %d</string>
     <string name="order_count">%d Items</string>
+    <string name="step_order_placed">Order Placed</string>
+    <string name="step_cancelled">Order Cancelled</string>
+    <string name="step_confirmed">Order Confirmed</string>
+    <string name="step_delivered">Order delivered</string>
+    <string name="step_delivering">Delivery Started</string>
+    <string name="status_all">All</string>
+    <string name="status_delivering">On Delivering</string>
+    <string name="status_completed">Completed</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="status_confirmed">Confirmed</string>
+    <string name="status_placed">Placed</string>
+    <string name="fragment_orders_empty">No orders</string>
 </resources>
