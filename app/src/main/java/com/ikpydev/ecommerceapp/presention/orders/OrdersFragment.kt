@@ -29,7 +29,7 @@ class OrdersFragment: BaseFragment<OrdersFragmentBinding>(OrdersFragmentBinding:
         subscribeToLiveData()
         initUi()
     }
-
+ val i = 2
     private fun subscribeToLiveData() = with(binding) {
 
         viewModel.loading.observe(viewLifecycleOwner) {
