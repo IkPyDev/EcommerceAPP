@@ -165,7 +165,13 @@
         android:id="@+id/ordersFragment"
         android:name="com.ikpydev.ecommerceapp.presention.orders.OrdersFragment"
         android:label="OrdersFragment"
-        tools:layout="@layout/orders_fragment" />
+        tools:layout="@layout/orders_fragment">
+
+        <action
+            android:id="@+id/to_mapFragment"
+            app:destination="@id/mapFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/cardFragment"
@@ -208,5 +214,16 @@
         android:name="com.ikpydev.ecommerceapp.presention.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.map.MapFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/map_fragment">
+
+        <argument
+            android:name="order"
+            app:argType="integer"/>
+
+    </fragment>
 
 </navigation>

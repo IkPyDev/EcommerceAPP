@@ -5,8 +5,10 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import com.ikpydev.ecommerceapp.databinding.OrdersFragmentBinding
+import com.ikpydev.ecommerceapp.domain.module.Order
 import com.ikpydev.ecommerceapp.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -15,7 +17,7 @@ import kotlinx.coroutines.launch
 class OrdersFragment: BaseFragment<OrdersFragmentBinding>(OrdersFragmentBinding::inflate) {
 
     private val viewModel by viewModels<OrdersViewModel>()
-    private val adapter by lazy { OrderAdapter() }
+    private val adapter by lazy { OrderAdapter(this::track) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +63,9 @@ class OrdersFragment: BaseFragment<OrdersFragmentBinding>(OrdersFragmentBinding:
             viewModel.getOrders()
         }
         orders.adapter = adapter
+    }
+    private fun track(order: Order){
+        findNavController().navigate(OrdersFragmentDirections.toMapFragment(order.id))
     }
 
 }

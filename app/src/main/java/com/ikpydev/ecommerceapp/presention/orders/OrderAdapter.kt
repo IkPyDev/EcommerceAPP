@@ -12,7 +12,8 @@ import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.databinding.ItemOrderBinding
 import com.ikpydev.ecommerceapp.domain.module.Order
 
-class OrderAdapter : PagingDataAdapter<Order, OrderAdapter.ViewHolder>(DIFF_UTIL) {
+class OrderAdapter(private val track: (order: Order) -> Unit) :
+    PagingDataAdapter<Order, OrderAdapter.ViewHolder>(DIFF_UTIL) {
 
     inner class ViewHolder(
         private val binding: ItemOrderBinding
@@ -25,7 +26,9 @@ class OrderAdapter : PagingDataAdapter<Order, OrderAdapter.ViewHolder>(DIFF_UTIL
             image.backgroundTintList = ColorStateList.valueOf(background)
             val foreground = ContextCompat.getColor(root.context, order.foreground)
             image.setColorFilter(foreground)
-            steps.adapter = StepsAdapter(order.steps)
+            steps.adapter = StepsAdapter(order.steps){
+                track(order)
+            }
             steps.isVisible = order.expanded
             arrow.scaleY = if (order.expanded) -1F else 1F
             root.setOnClickListener {

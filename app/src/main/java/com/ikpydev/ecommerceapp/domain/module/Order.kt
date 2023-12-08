@@ -54,7 +54,7 @@ data class Order(
             list.add(Steps(R.string.step_delivered, null, R.drawable.ic_step_unchecked))
         }
         if (delivering != null) {
-            list.add(Steps(R.string.step_delivering, delivering, R.drawable.ic_step_checked))
+            list.add(Steps(R.string.step_delivering, delivering, R.drawable.ic_step_checked,true))
         } else {
             list.add(Steps(R.string.step_delivering, null, R.drawable.ic_step_unchecked))
         }

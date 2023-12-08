@@ -5,9 +5,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ikpydev.ecommerceapp.databinding.ItemStepBinding
+import com.ikpydev.ecommerceapp.domain.module.Order
 import com.ikpydev.ecommerceapp.domain.module.Steps
 
-class StepsAdapter(private val steps: List<Steps>) :
+class StepsAdapter(
+    private val steps: List<Steps>,
+    private val track: () -> Unit
+) :
     RecyclerView.Adapter<StepsAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemStepBinding) :
@@ -17,6 +21,10 @@ class StepsAdapter(private val steps: List<Steps>) :
             title.text = root.context.getString(steps.title)
             data.text = steps.data
             divider.isVisible = dividerVisible
+            root.setOnClickListener {
+                if (steps.trackable) track()
+
+            }
         }
     }
 
