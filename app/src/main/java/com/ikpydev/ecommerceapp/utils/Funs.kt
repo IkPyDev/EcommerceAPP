@@ -70,4 +70,4 @@ fun Context.showKeyboard(view: View) {
 
 val Int.dp: Int get() = (this * getSystem().displayMetrics.density).toInt()
 
-val xaxa= "vaa"
+val xaxa= "exx"
