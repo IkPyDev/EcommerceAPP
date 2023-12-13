@@ -115,4 +115,24 @@
     <string name="status_confirmed">Confirmed</string>
     <string name="status_placed">Placed</string>
     <string name="fragment_orders_empty">No orders</string>
+    <string name="checkout">Checkout</string>
+    <string name="checkout_delivery">Delivery</string>
+    <string name="checkout_address">Address</string>
+    <string name="checkout_payment">Payment</string>
+    <string name="checkout_full_name">Full Name</string>
+    <string name="checkout_full_name_a">Brayden Anderson</string>
+    <string name="checkout_email_title">Email Address</string>
+    <string name="checkout_full_name_e">braydenander@gmail.com</string>
+    <string name="checkout_email">Enter your email address</string>
+    <string name="checkout_name_hint">Enter you full name</string>
+    <string name="checkout_email_hint">Enter you email address</string>
+    <string name="checkout_phone_hint">Enter you phone number</string>
+    <string name="checkout_phone_title">Phone Number</string>
+    <string name="checkout_address_hint">Enter your home address</string>
+    <string name="checkout_zip">Zip Code</string>
+    <string name="checkout_zip_hint">Zip Code</string>
+    <string name="checkout_city">City</string>
+    <string name="checkout_country">Country</string>
+    <string name="checkout_cyc">Choose your country</string>
+    <string name="checkout_save">Save shipping address</string>
 </resources>
