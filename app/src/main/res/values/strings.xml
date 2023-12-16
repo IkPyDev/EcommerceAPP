@@ -135,4 +135,13 @@
     <string name="checkout_country">Country</string>
     <string name="checkout_cyc">Choose your country</string>
     <string name="checkout_save">Save shipping address</string>
+    <string name="pay_cads">Saved Cards</string>
+    <string name="pay_add_card">Add Card</string>
+    <string name="pay_cash_payment">Cash Payment</string>
+    <string name="pay_make_payment">make payment</string>
+    <string name="add_card">Add New Card</string>
+    <string name="add_name">Card Holder Name</string>
+    <string name="add_card_name">Enter you card name</string>
+    <string name="add_number_card">Enter you card number</string>
+    <string name="add_number_title">Card Number</string>
 </resources>

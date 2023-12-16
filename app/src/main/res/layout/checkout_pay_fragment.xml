@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="46dp"
+        android:padding="6dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/bold"
+        android:text="@string/checkout"
+        android:textColor="@color/dark_text"
+        android:textSize="22sp"
+
+
+        app:layout_constraintBottom_toBottomOf="@id/back"
+        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintTop_toTopOf="@id/back" />
+
+    <ImageView
+        android:id="@+id/delivery"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="31dp"
+
+        android:src="@drawable/checkout_check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/deliver_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/semis_bold"
+        android:text="@string/checkout_delivery"
+        android:textColor="@color/dark_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/delivery"
+        app:layout_constraintStart_toStartOf="@id/delivery"
+        app:layout_constraintTop_toBottomOf="@id/delivery" />
+
+    <ImageView
+        android:id="@+id/address"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="31dp"
+
+        android:src="@drawable/checkout_check"
+        app:layout_constraintEnd_toStartOf="@id/payment"
+        app:layout_constraintStart_toEndOf="@id/delivery"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/address_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/semis_bold"
+        android:text="@string/checkout_address"
+        android:textColor="@color/dark_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/address"
+        app:layout_constraintStart_toStartOf="@id/address"
+        app:layout_constraintTop_toBottomOf="@id/address" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="0dp"
+        android:layout_height="1.5dp"
+        android:layout_marginStart="-15dp"
+        android:elevation="0dp"
+        app:dividerColor="@color/orange"
+        app:layout_constraintBottom_toBottomOf="@id/delivery"
+        app:layout_constraintEnd_toStartOf="@id/address"
+
+        app:layout_constraintStart_toEndOf="@id/delivery"
+        app:layout_constraintTop_toTopOf="@id/delivery" />
+
+    <ImageView
+        android:id="@+id/payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="32dp"
+
+        android:src="@drawable/checkout_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/semis_bold"
+        android:text="@string/checkout_payment"
+        android:textColor="@color/dark_text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/payment"
+        app:layout_constraintStart_toStartOf="@id/payment"
+        app:layout_constraintTop_toBottomOf="@id/payment" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider2"
+        android:layout_width="0dp"
+        android:layout_height="1.5dp"
+        android:elevation="0dp"
+        app:dividerColor="@color/orange"
+        app:layout_constraintBottom_toBottomOf="@id/delivery"
+        app:layout_constraintEnd_toStartOf="@id/payment"
+
+        app:layout_constraintStart_toEndOf="@id/address"
+        app:layout_constraintTop_toTopOf="@id/delivery" />
+
+    <TextView
+        android:id="@+id/cards_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/semis_bold"
+        android:text="@string/pay_cads"
+        android:textColor="@color/dark_text"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_title"
+        app:layout_goneMarginStart="32dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_card"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/semis_bold"
+        android:gravity="end"
+
+        android:padding="8dp"
+        android:text="@string/pay_add_card"
+        android:textAllCaps="false"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        app:icon="@drawable/add_card"
+
+        app:iconGravity="start"
+
+
+        app:layout_constraintBottom_toBottomOf="@id/cards_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cards_title" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/cards"
+        android:layout_width="match_parent"
+        android:layout_height="203dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cards_title" />
+
+    <com.zhpan.indicator.IndicatorView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cards" />
+
+
+    <TextView
+        android:id="@+id/cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/checkout_background"
+        android:drawablePadding="21dp"
+        android:fontFamily="@font/semis_bold"
+        android:gravity="center"
+        android:paddingStart="@dimen/dp_15"
+        android:paddingTop="25dp"
+        android:paddingEnd="25dp"
+        android:paddingBottom="18dp"
+        android:text="@string/pay_cash_payment"
+        android:textColor="@color/dark_text"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/pay_check"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/indicator" />
+
+    <ImageView
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/pay_cashon"
+        app:layout_constraintBottom_toBottomOf="@id/cash"
+        app:layout_constraintStart_toStartOf="@id/cash"
+        app:layout_constraintTop_toTopOf="@id/cash" />
+
+    <TextView
+        android:id="@+id/paypal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/checkout_background"
+        android:drawablePadding="21dp"
+        android:fontFamily="@font/semis_bold"
+        android:gravity="center"
+        android:paddingStart="@dimen/dp_15"
+        android:paddingTop="25dp"
+        android:paddingEnd="25dp"
+        android:paddingBottom="18dp"
+        android:text="@string/pay_cash_payment"
+        android:textColor="@color/dark_text"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/pay_uncheck"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/cash" />
+
+    <ImageView
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/pay_paypal"
+        app:layout_constraintBottom_toBottomOf="@id/paypal"
+        app:layout_constraintStart_toStartOf="@id/paypal"
+        app:layout_constraintTop_toTopOf="@id/paypal" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_backgound"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/extra_bold"
+        android:text="@string/pay_make_payment"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:backgroundTint="@null"
+        android:layout_marginTop="@dimen/dp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paypal"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
