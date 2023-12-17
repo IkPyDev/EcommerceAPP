@@ -144,4 +144,8 @@
     <string name="add_card_name">Enter you card name</string>
     <string name="add_number_card">Enter you card number</string>
     <string name="add_number_title">Card Number</string>
+    <string name="add_data">Enter you MM/YY</string>
+    <string name="add_cvv">CVV code</string>
+    <string name="add_cart">ADD Cart</string>
+    <string name="add_cvv_title">CVV</string>
 </resources>

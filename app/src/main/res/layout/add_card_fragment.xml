@@ -35,10 +35,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="18dp"
         android:id="@+id/card"
         app:layout_constraintTop_toBottomOf="@id/title"
-
         app:cardCornerRadius="20dp"
         android:layout_height="wrap_content">
 
@@ -60,7 +59,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/visa_seeklogo_com_1" />
+                android:src="@drawable/visa_seeklogo_com_1" />
 
             <TextView
                 android:id="@+id/name"
@@ -140,141 +139,178 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
-    <TextView
-
-        android:id="@+id/card_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/medium"
-        android:text="@string/add_name"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card" />
-
-    <EditText
-        android:id="@+id/add_card"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/checkout_background"
-        android:fontFamily="@font/medium"
-        android:hint="@string/add_card_name"
-        android:inputType="textAutoComplete"
-        android:padding="18dp"
-        android:paddingHorizontal="25dp"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_title"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card">
 
-        />
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:id="@+id/card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/add_name"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/add_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/checkout_background"
+                android:fontFamily="@font/medium"
+                android:hint="@string/add_card_name"
+                android:inputType="textAutoComplete"
+                android:padding="18dp"
+                android:paddingHorizontal="25dp"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_title"
+
+                />
 
 
-    <TextView
+            <TextView
 
-        android:id="@+id/card_number_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/medium"
-        android:text="@string/add_number_title"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/add_card" />
+                android:id="@+id/card_number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/add_number_title"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_card" />
 
-    <EditText
-        android:id="@+id/add_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/checkout_background"
-        android:fontFamily="@font/medium"
-        android:hint="@string/add_number_card"
-        android:inputType="number"
-        android:padding="18dp"
-        android:paddingHorizontal="25dp"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_number_title"
+            <EditText
+                android:id="@+id/add_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/checkout_background"
+                android:fontFamily="@font/medium"
+                android:hint="@string/add_number_card"
+                android:inputType="number"
+                android:maxLength="16"
+                android:padding="18dp"
+                android:paddingHorizontal="25dp"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_number_title"
 
-        />
+                />
 
-    <TextView
+            <TextView
 
-        android:id="@+id/zip_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/medium"
-        android:text="@string/checkout_zip"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/add_number" />
+                android:id="@+id/data_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/add_data"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_number" />
 
-    <EditText
-        android:id="@+id/zip"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="35dp"
-        android:background="@drawable/checkout_background"
-        android:fontFamily="@font/medium"
-        android:hint="@string/checkout_zip"
-        android:inputType="text"
-        android:padding="18dp"
-        android:paddingHorizontal="25dp"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/city_title"
+            <EditText
+                android:id="@+id/year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/checkout_background"
+                android:fontFamily="@font/medium"
+                android:hint="@string/add_data"
+                android:inputType="number"
+                android:maxLength="5"
+                android:padding="18dp"
+                android:paddingHorizontal="25dp"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/cvv_title"
 
-        app:layout_constraintStart_toStartOf="@id/zip_title"
-        app:layout_constraintTop_toBottomOf="@id/zip_title"
+                app:layout_constraintStart_toStartOf="@id/data_title"
+                app:layout_constraintTop_toBottomOf="@id/data_title"
 
-        />
+                />
 
-    <TextView
+            <TextView
 
-        android:id="@+id/city_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:fontFamily="@font/medium"
-        android:text="@string/checkout_city"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/zip_title"
-        app:layout_constraintTop_toTopOf="@id/zip_title" />
+                android:id="@+id/cvv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/add_cvv_title"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/data_title"
+                app:layout_constraintTop_toTopOf="@id/data_title" />
 
-    <EditText
-        android:id="@+id/city"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/checkout_background"
-        android:fontFamily="@font/medium"
-        android:hint="@string/checkout_city"
-        android:inputType="phone"
-        android:padding="18dp"
-        android:paddingHorizontal="25dp"
-        android:textColor="@color/dark_text"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/city_title"
-        app:layout_constraintTop_toBottomOf="@id/city_title"
+            <EditText
+                android:id="@+id/cvv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/checkout_background"
+                android:fontFamily="@font/medium"
+                android:gravity="start|end"
+                android:hint="@string/add_cvv"
+                android:inputType="number"
+                android:maxLength="3"
+                android:padding="18dp"
+                android:paddingHorizontal="25dp"
+                android:textColor="@color/dark_text"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/year"
+                app:layout_constraintTop_toBottomOf="@id/cvv_title"
 
-        />
+                />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_backgound"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/extra_bold"
+                android:text="@string/add_cart"
+                android:textSize="16sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 

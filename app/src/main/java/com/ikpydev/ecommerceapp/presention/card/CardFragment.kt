@@ -36,7 +36,7 @@ class CardFragment : BaseFragment<CardFragmentBinding>(CardFragmentBinding::infl
 
                 CardViewModel.Event.OrderError -> R.string.card_order_error
                 CardViewModel.Event.OrderCrate -> {
-                    findNavController().popBackStack()
+                    findNavController().navigate(CardFragmentDirections.toCheckoutFragment())
                     R.string.card_create
                 }
             }

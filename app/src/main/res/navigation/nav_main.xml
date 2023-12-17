@@ -177,14 +177,18 @@
         android:id="@+id/cardFragment"
         android:name="com.ikpydev.ecommerceapp.presention.card.CardFragment"
         android:label="CardFragment"
-        tools:layout="@layout/card_fragment" >
+        tools:layout="@layout/card_fragment">
 
         <action
             android:id="@+id/to_detailFragment"
-            app:destination="@id/detailFragment"/>
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
 
 
     </fragment>
+
 
     <fragment
         android:id="@+id/wishlistFragment"
@@ -222,8 +226,39 @@
 
         <argument
             android:name="order"
-            app:argType="integer"/>
+            app:argType="integer" />
 
     </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.checkout.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/checkout_fragment">
+        <action
+            android:id="@+id/checkout_pay_Fragment"
+            app:destination="@id/checkout_pay_Fragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkout_pay_Fragment"
+        android:name="com.ikpydev.ecommerceapp.presention.checkout_pay.CheckoutPayFragment"
+        android:label="CheckoutPayFragment"
+        tools:layout="@layout/checkout_pay_fragment">
+
+        <action
+            android:id="@+id/to_add_CardFragment"
+            app:destination="@+id/add_card_Fragment"/>
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/add_card_Fragment"
+        android:name="com.ikpydev.ecommerceapp.presention.add_card.AddCardFragment"
+        android:label="AddCardFragment"
+        tools:layout="@layout/add_card_fragment">
+
+
+    </fragment>
+
 
 </navigation>

@@ -4,6 +4,7 @@ import androidx.paging.PagingData
 import com.ikpydev.ecommerceapp.data.api.order.dto.Billing
 import com.ikpydev.ecommerceapp.domain.module.Order
 import com.ikpydev.ecommerceapp.domain.module.Status
+import com.ikpydev.ecommerceapp.domain.module.UserInfo
 import kotlinx.coroutines.flow.Flow
 
 interface  OrderRepository {
@@ -12,4 +13,7 @@ interface  OrderRepository {
     suspend fun createOrder(promo: String?)
 
     fun getOrders(status: Status):Flow<PagingData<Order>>
+
+    suspend fun userInfo(userInfo: UserInfo)
+    suspend fun getUser():Flow<UserInfo?>
 }

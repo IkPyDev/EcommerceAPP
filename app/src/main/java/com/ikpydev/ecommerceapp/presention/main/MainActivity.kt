@@ -74,7 +74,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.onboardingFragment,
                 R.id.signUpFragment,
                 R.id.singInFragment,
-                R.id.detailFragment
+                R.id.detailFragment,
+                R.id.checkoutFragment,
+                R.id.checkout_pay_Fragment,
+                R.id.add_card_Fragment
             ).all { it !=destination.id }
         }
 
