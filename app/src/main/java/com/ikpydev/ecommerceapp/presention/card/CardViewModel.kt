@@ -64,22 +64,12 @@ class CardViewModel @Inject constructor(
 
     }
 
-    fun createOrder(promo: String? = null) = viewModelScope.launch {
-        loading.postValue(true)
-        try {
-            orderRepository.createOrder(promo)
-            evets.postValue(Event.OrderCrate)
-        } catch (e: Exception) {
-            evets.postValue(Event.OrderError)
-        } finally {
-            loading.postValue(false)
-        }
-    }
+
 
     sealed class Event {
         object BillingError : Event()
         object OrderError : Event()
-        object OrderCrate : Event()
+
     }
 
 

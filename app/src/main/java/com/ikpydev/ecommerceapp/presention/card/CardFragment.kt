@@ -35,10 +35,6 @@ class CardFragment : BaseFragment<CardFragmentBinding>(CardFragmentBinding::infl
                 CardViewModel.Event.BillingError -> R.string.card_billing_error
 
                 CardViewModel.Event.OrderError -> R.string.card_order_error
-                CardViewModel.Event.OrderCrate -> {
-                    findNavController().navigate(CardFragmentDirections.toCheckoutFragment())
-                    R.string.card_create
-                }
             }
             Snackbar.make(root, message, Snackbar.LENGTH_SHORT).show()
         }
@@ -73,7 +69,7 @@ class CardFragment : BaseFragment<CardFragmentBinding>(CardFragmentBinding::infl
             viewModel.getBilling(promo.text.toString())
         }
         checkout.setOnClickListener {
-            viewModel.createOrder(promo.text.toString())
+            findNavController().navigate(CardFragmentDirections.toCheckoutFragment(promo.text.toString()))
         }
     }
 
