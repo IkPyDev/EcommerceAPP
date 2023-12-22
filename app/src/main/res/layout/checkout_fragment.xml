@@ -375,7 +375,7 @@
                 app:layout_constraintTop_toBottomOf="@id/country_title">
 
                 <AutoCompleteTextView
-                    android:id="@+id/act_type"
+                    android:id="@+id/count"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
@@ -413,7 +413,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="46dp"
         android:background="@drawable/button_backgound"
         android:backgroundTint="@null"
         android:fontFamily="@font/extra_bold"
@@ -421,6 +421,7 @@
         android:textSize="16sp"
         android:visibility="visible"
         app:backgroundTint="@null"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content"
 

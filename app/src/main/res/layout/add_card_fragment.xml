@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <ImageView
         android:id="@+id/back"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:padding="6dp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/name"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:text="CARD HOLDER"
+                android:text="CARD HOLDER"
 
                 />
 
@@ -116,9 +117,10 @@
                 android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@id/data"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="VALID THRU" />
+                android:text="VALID THRU" />
 
             <TextView
+
                 android:id="@+id/card_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,9 +128,11 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="31dp"
                 android:gravity="center_horizontal"
+                android:singleLine="true"
                 android:fontFamily="@font/bold"
                 android:textColor="@color/white"
-                android:textSize="28sp"
+                android:textSize="26sp"
+
                 app:layout_constraintBottom_toTopOf="@id/card_name"
                 app:layout_constraintTop_toBottomOf="@id/card_icon"
                 tools:text="1234 1234 1234  8596" />
@@ -168,6 +172,7 @@
 
             <EditText
                 android:id="@+id/add_card"
+                android:maxLength="25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
@@ -201,6 +206,7 @@
                 app:layout_constraintTop_toBottomOf="@id/add_card" />
 
             <EditText
+
                 android:id="@+id/add_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -223,12 +229,12 @@
             <TextView
 
                 android:id="@+id/data_title"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/medium"
-                android:text="@string/add_data"
+                android:text="@string/add_data_a"
                 android:textColor="@color/dark_text"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -244,7 +250,7 @@
                 android:fontFamily="@font/medium"
                 android:hint="@string/add_data"
                 android:inputType="number"
-                android:maxLength="5"
+                android:maxLength="4"
                 android:padding="18dp"
                 android:paddingHorizontal="25dp"
                 android:textColor="@color/dark_text"
@@ -298,14 +304,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="76dp"
                 android:background="@drawable/button_backgound"
                 android:backgroundTint="@null"
                 android:fontFamily="@font/extra_bold"
                 android:text="@string/add_cart"
                 android:textSize="16sp"
                 app:backgroundTint="@null"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cvv" />
 

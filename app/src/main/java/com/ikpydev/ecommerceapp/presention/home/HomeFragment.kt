@@ -43,7 +43,6 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
         error.retry.setOnClickListener {
             viewModel.getHome()
         }
-        searchContainer.search.clearFocus()
         indicator.apply {
             val normalColor = ContextCompat.getColor(requireContext(), R.color.indicator_unchecked)
             val checkedColor = ContextCompat.getColor(requireContext(), R.color.indicator_checked)

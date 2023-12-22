@@ -7,8 +7,10 @@ import android.content.Context
 import android.content.res.Resources.getSystem
 import android.os.Build
 import android.view.View
+import android.view.Window
 import android.view.WindowInsetsController
 import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -71,3 +73,11 @@ fun Context.showKeyboard(view: View) {
 val Int.dp: Int get() = (this * getSystem().displayMetrics.density).toInt()
 
 val xaxa= "exx"
+
+
+fun Fragment.hideActionBar() {
+    activity?.window?.setFlags(
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+    )
+}
