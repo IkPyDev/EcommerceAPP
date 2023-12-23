@@ -184,7 +184,9 @@
             app:destination="@id/detailFragment" />
         <action
             android:id="@+id/to_checkoutFragment"
-            app:destination="@id/checkoutFragment" />
+            app:destination="@id/checkoutFragment"
+
+            />
 
 
     </fragment>
@@ -217,7 +219,13 @@
         android:id="@+id/profileFragment"
         android:name="com.ikpydev.ecommerceapp.presention.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+
+        <action
+            android:id="@+id/to_singInFragment"
+            app:destination="@id/singInFragment"/>
+
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.ikpydev.ecommerceapp.presention.map.MapFragment"
@@ -238,6 +246,11 @@
             android:id="@+id/checkout_pay_Fragment"
             app:destination="@id/checkout_pay_Fragment" />
 
+        <argument
+            android:name="promo"
+            app:argType="string"
+            app:nullable="true"/>
+
     </fragment>
     <fragment
         android:id="@+id/checkout_pay_Fragment"
@@ -248,6 +261,10 @@
         <action
             android:id="@+id/to_add_CardFragment"
             app:destination="@+id/add_card_Fragment"/>
+        <argument
+            android:name="userInfo"
+            app:argType="com.ikpydev.ecommerceapp.domain.module.UserInfo"/>
+
 
 
     </fragment>
