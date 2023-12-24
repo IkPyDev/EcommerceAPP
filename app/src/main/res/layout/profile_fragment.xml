@@ -1,8 +1,619 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:background="#FF5722"
 
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/avatar_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="303dp"
+                android:background="@drawable/profile_background"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.card.MaterialCardView
+
+                android:id="@+id/avatarLayout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="41dp"
+                android:shape="ring"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="2dp">
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/avatar_edit_layout"
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+
+                android:layout_marginEnd="-6dp"
+                android:backgroundTint="@color/orange"
+                android:elevation="15dp"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintBottom_toBottomOf="@id/avatarLayout"
+                app:layout_constraintEnd_toEndOf="@id/avatarLayout"
+                app:strokeWidth="2dp">
+
+                <ImageView
+                    android:id="@+id/avatar_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_edit" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Brayden Anderson"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@id/avatarLayout" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/reguler"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="braydenander@gmail.com"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@+id/fullName" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#F3F6FB"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="36dp"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintTop_toBottomOf="@id/email"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:backgroundTint="@color/white">
+
+
+                    <ImageView
+                        android:id="@+id/user"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_user_logo"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/user_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Account Info"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/user"
+
+                        app:layout_constraintStart_toEndOf="@id/user"
+                        app:layout_constraintTop_toTopOf="@id/user" />
+
+                    <ImageView
+                        android:id="@+id/user_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/user"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/user" />
+
+
+                    <ImageView
+                        android:id="@+id/order"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_order"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user" />
+
+                    <TextView
+                        android:id="@+id/order_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="My Order"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/order"
+
+                        app:layout_constraintStart_toEndOf="@id/order"
+                        app:layout_constraintTop_toTopOf="@id/order" />
+
+                    <ImageView
+                        android:id="@+id/order_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/order"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/order" />
+
+                    <ImageView
+                        android:id="@+id/payment"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_payment"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/order" />
+
+                    <TextView
+                        android:id="@+id/payment_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Payment Method"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/payment"
+
+                        app:layout_constraintStart_toEndOf="@id/payment"
+                        app:layout_constraintTop_toTopOf="@id/payment" />
+
+                    <ImageView
+                        android:id="@+id/payment_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/payment"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/payment" />
+
+
+                    <ImageView
+                        android:id="@+id/delivery"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="22dp"
+                        android:src="@drawable/ic_pin"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/payment" />
+
+                    <TextView
+                        android:id="@+id/delivery_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Delivery Address"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/delivery"
+
+                        app:layout_constraintStart_toEndOf="@id/delivery"
+                        app:layout_constraintTop_toTopOf="@id/delivery" />
+
+                    <ImageView
+                        android:id="@+id/delivery_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/delivery"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/delivery" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/addition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="18dp"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintTop_toBottomOf="@id/control">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/setting"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_setting"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/setting_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Settings"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/setting"
+
+                        app:layout_constraintStart_toEndOf="@id/setting"
+                        app:layout_constraintTop_toTopOf="@id/setting" />
+
+                    <ImageView
+                        android:id="@+id/setting_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/setting"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/setting" />
+
+
+                    <ImageView
+                        android:id="@+id/help"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_help"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/setting" />
+
+                    <TextView
+                        android:id="@+id/help_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Help Center"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/help"
+
+                        app:layout_constraintStart_toEndOf="@id/help"
+                        app:layout_constraintTop_toTopOf="@id/help" />
+
+                    <ImageView
+                        android:id="@+id/help_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/help"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/help" />
+
+                    <ImageView
+                        android:id="@+id/contact"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_sms"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/help" />
+
+                    <TextView
+                        android:id="@+id/contact_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Contact Us"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/contact"
+
+                        app:layout_constraintStart_toEndOf="@id/contact"
+                        app:layout_constraintTop_toTopOf="@id/contact" />
+
+                    <ImageView
+                        android:id="@+id/contact_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/contact"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/contact" />
+
+                    <ImageView
+                        android:id="@+id/share"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/ic_share"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/contact" />
+
+                    <TextView
+                        android:id="@+id/share_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Share App"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/share"
+
+                        app:layout_constraintStart_toEndOf="@id/share"
+                        app:layout_constraintTop_toTopOf="@id/share" />
+
+                    <ImageView
+                        android:id="@+id/share_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/share"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/share" />
+
+
+                    <ImageView
+                        android:id="@+id/rate"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="22dp"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/share" />
+
+                    <TextView
+                        android:id="@+id/rate_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Rate App"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/rate"
+
+                        app:layout_constraintStart_toEndOf="@id/rate"
+                        app:layout_constraintTop_toTopOf="@id/rate" />
+
+                    <ImageView
+                        android:id="@+id/rate_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/rate"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/rate" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="14dp"
+
+                app:layout_constraintTop_toBottomOf="@id/addition">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        app:cardCornerRadius="14dp"
+                        android:id="@+id/cards"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="22dp"
+                        android:background="@drawable/cards_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        >
+                        <ImageView
+                            android:background="@color/orange"
+                            android:id="@+id/cards_ic"
+                            android:padding="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:src="@drawable/ic_my_cards"
+                            />
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <TextView
+                        android:id="@+id/cards_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="My Cards"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/cards"
+
+                        app:layout_constraintStart_toEndOf="@id/cards"
+                        app:layout_constraintTop_toTopOf="@id/cards" />
+
+                    <ImageView
+                        android:id="@+id/cards_arrow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_arrow_next"
+                        app:layout_constraintBottom_toBottomOf="@id/cards"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/cards" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/logoutLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardsLayout">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/logout"
+                        android:layout_width="41dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="22dp"
+                        android:src="@drawable/ic_logout"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/logout_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="21dp"
+                        android:fontFamily="@font/medium"
+                        android:text="Logout"
+                        android:textColor="@color/dark_text"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/logout"
+
+                        app:layout_constraintStart_toEndOf="@id/logout"
+                        app:layout_constraintTop_toTopOf="@id/logout" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/view_loading" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

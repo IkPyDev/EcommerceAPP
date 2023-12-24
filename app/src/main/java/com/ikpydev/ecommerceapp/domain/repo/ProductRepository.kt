@@ -1,6 +1,7 @@
 package com.ikpydev.ecommerceapp.domain.repo
 
 import androidx.paging.PagingData
+import com.ikpydev.ecommerceapp.data.api.auth.dto.UserDto
 import com.ikpydev.ecommerceapp.data.api.product.dto.Category
 import com.ikpydev.ecommerceapp.data.api.product.dto.Detail
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
@@ -23,5 +24,9 @@ interface ProductRepository {
     suspend fun setCart(cart:Cart)
     fun getCart() :Flow<List<Cart>>
     suspend fun clearCart()
+
+    suspend fun getUserInfo():Flow<UserDto>
+
+    suspend fun logout()
 
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EcommerceAPP</string>
+    <string name="app_name">Orange Market</string>
     <string name="connect_error">Connetion Error</string>
     <string name="Error">"Error "</string>
     <string name="InvalidEror">Invalid Cridetalis\n</string>
@@ -148,4 +148,8 @@
     <string name="add_cvv">CVV code</string>
     <string name="add_cart">ADD Cart</string>
     <string name="add_cvv_title">CVV</string>
+    <string name="pay_error">Add your cart by clicking Add Cart</string>
+    <string name="add_data_a">Month/Year</string>
+    <string name="valid_thru">VALID THRU</string>
+    <string name="nul" />
 </resources>

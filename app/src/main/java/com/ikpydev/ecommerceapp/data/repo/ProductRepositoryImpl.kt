@@ -2,11 +2,15 @@ package com.ikpydev.ecommerceapp.data.repo
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import com.ikpydev.ecommerceapp.data.api.auth.dto.UserDto
 import com.ikpydev.ecommerceapp.data.api.product.ProductApi
 import com.ikpydev.ecommerceapp.data.api.product.dto.HomeResponse
 import com.ikpydev.ecommerceapp.data.api.product.paging.ProductPagingSource
+import com.ikpydev.ecommerceapp.data.store.CardStore
 import com.ikpydev.ecommerceapp.data.store.CartStore
 import com.ikpydev.ecommerceapp.data.store.RecentsStore
+import com.ikpydev.ecommerceapp.data.store.TokenStore
+import com.ikpydev.ecommerceapp.data.store.UserInfoStore
 import com.ikpydev.ecommerceapp.data.store.UserStore
 import com.ikpydev.ecommerceapp.domain.module.Cart
 import com.ikpydev.ecommerceapp.domain.module.ProductQuery
@@ -19,7 +23,10 @@ class ProductRepositoryImpl @Inject constructor(
     private val productApi: ProductApi,
     private val userStore: UserStore,
     private val recentsStore: RecentsStore,
-    private val cartStore : CartStore
+    private val cartStore : CartStore,
+    private val tokenStore: TokenStore,
+    private val userInfoStore: UserInfoStore,
+    private val cardStore: CardStore
 ) : ProductRepository {
     override suspend fun getHome(): HomeResponse {
         val response = productApi.getHome()
@@ -70,6 +77,17 @@ class ProductRepositoryImpl @Inject constructor(
     override fun getCart(): Flow<List<Cart>>  =cartStore.getFlow().map { it?.toList() ?: emptyList() }
 
     override suspend fun clearCart() = cartStore.clear()
+    override suspend fun getUserInfo(): Flow<UserDto> = userStore.getFlow().map { it!! }
+    override suspend fun logout() {
+        cartStore.clear()
+        userStore.clear()
+        tokenStore.clear()
+        cardStore.clear()
+        recentsStore.clear()
+        userInfoStore.clear()
+
+
+    }
 
     override suspend fun getProduct(id: String) = productApi.getProduct(id)
 }
