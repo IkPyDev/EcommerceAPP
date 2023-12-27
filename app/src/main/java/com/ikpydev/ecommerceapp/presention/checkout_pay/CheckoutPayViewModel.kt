@@ -1,6 +1,7 @@
 package com.ikpydev.ecommerceapp.presention.checkout_pay
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,8 +30,11 @@ class CheckoutPayViewModel @Inject constructor(private val orderRepository: Orde
         }
     }
 
-    fun createOrder(promo:String?,userInfo: UserInfo,card: Card)= viewModelScope.launch {
-        orderRepository.createOrder(promo, userInfo, card)
+    fun createOrder(promo:String?,userInfo: UserInfo,card: Card)= viewModelScope.launch(Dispatchers.Default) {
+        try {
+            orderRepository.createOrder(promo, userInfo, card)
+        }catch (e:Exception){
+        }
     }
 
 
