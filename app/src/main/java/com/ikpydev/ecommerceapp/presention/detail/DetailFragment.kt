@@ -15,6 +15,7 @@ import com.ikpydev.ecommerceapp.common.Constats
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.DetailFragmentBinding
 import com.ikpydev.ecommerceapp.utils.BaseFragment
+import com.ikpydev.ecommerceapp.utils.textStrike
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
 import dagger.hilt.android.AndroidEntryPoint
@@ -74,8 +75,12 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding
         }
         add.setOnClickListener {
             viewModel.set()
-            Snackbar.make(root,R.string.detail_add_cart,Snackbar.LENGTH_SHORT).show()
-            findNavController().popBackStack()
+            Snackbar.make(root, R.string.detail_add_cart, Snackbar.LENGTH_SHORT).show()
+            try {
+                findNavController().popBackStack()
+            } catch (e: Exception) {
+                findNavController().navigate(DetailFragmentDirections.toHomeFragment())
+            }
         }
 
     }
@@ -104,10 +109,11 @@ class DetailFragment : BaseFragment<DetailFragmentBinding>(DetailFragmentBinding
 
             categoryTitle.text = it.category
             name.text = it.title
+            productText.text = it.discription
 
             price.text = getString(R.string.price, it.price - (it.discount ?: 0.0))
             oldPrice.isVisible = it.discount != null
-            oldPrice.text = getString(R.string.detail_old_price, it.discount ?: 0.0)
+            oldPrice.text = textStrike(it.price.toString())
             reviews.text = getString(R.string.detail_product_reviews, it.rating, it.reviews)
 
             deliver.isVisible = it.freeDelivery
