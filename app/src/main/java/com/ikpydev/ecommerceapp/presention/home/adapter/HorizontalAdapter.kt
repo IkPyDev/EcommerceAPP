@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.ItemProductHorizontalSectionBinding
+import com.ikpydev.ecommerceapp.utils.textStrike
 
 
 class HorizontalAdapter(
@@ -39,7 +40,7 @@ class HorizontalAdapter(
 
 
 
-            oldPrice.text = root.context.getString(R.string.home_price,product.price)
+            oldPrice.text = textStrike(product.price.toString())
             oldPrice.isVisible = product.discount != null
 
             root.setOnClickListener {
@@ -75,6 +76,8 @@ class HorizontalAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(product[position])
     }
+
+
 
 
 }
