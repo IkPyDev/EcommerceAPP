@@ -219,11 +219,14 @@
         android:id="@+id/profileFragment"
         android:name="com.ikpydev.ecommerceapp.presention.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/profile_fragment" >
+        tools:layout="@layout/profile_fragment">
 
         <action
             android:id="@+id/to_singInFragment"
-            app:destination="@id/singInFragment"/>
+            app:destination="@id/singInFragment" />
+        <action
+            android:id="@+id/allCardsFragment"
+            app:destination="@id/allCardsFragment" />
 
     </fragment>
     <fragment
@@ -266,13 +269,23 @@
             app:argType="com.ikpydev.ecommerceapp.domain.module.UserInfo"/>
 
 
-
     </fragment>
     <fragment
         android:id="@+id/add_card_Fragment"
         android:name="com.ikpydev.ecommerceapp.presention.add_card.AddCardFragment"
         android:label="AddCardFragment"
         tools:layout="@layout/add_card_fragment">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/allCardsFragment"
+        android:name="com.ikpydev.ecommerceapp.presention.cards.AllCardsFragment"
+        android:label="AllCardsFragment"
+        tools:layout="@layout/all_cards_fragment">
+        <action
+            android:id="@id/to_add_CardFragment"
+            app:destination="@id/add_card_Fragment" />
 
 
     </fragment>

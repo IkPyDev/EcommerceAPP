@@ -20,6 +20,8 @@ interface  OrderRepository {
     suspend fun getUser():UserInfo
     suspend fun setCard(card: Card)
 
-     fun getCard():Flow<List<Card>>
+      fun getCard():Flow<List<Card>>
+
+     suspend fun clearCards()
 
 }
