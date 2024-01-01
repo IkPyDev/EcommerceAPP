@@ -1,12 +1,8 @@
 package com.ikpydev.ecommerceapp.presention.home.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.ItemProductBinding
 import com.ikpydev.ecommerceapp.presention.product.ProductViewHolder

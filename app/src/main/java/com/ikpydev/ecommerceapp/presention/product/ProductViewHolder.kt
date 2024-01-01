@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
 import com.ikpydev.ecommerceapp.databinding.ItemProductBinding
+import com.ikpydev.ecommerceapp.utils.textStrike
 
 class ProductViewHolder(private val binding: ItemProductBinding) :
     RecyclerView.ViewHolder(binding.root) {
@@ -36,7 +37,7 @@ class ProductViewHolder(private val binding: ItemProductBinding) :
             root.context.getString(R.string.item_product_reting_count, product.ratingCount)
         ratingStart.text = root.context.getString(R.string.home_rating_start, product.rating)
 
-        oldPrice.text = root.context.getString(R.string.home_price, product.price)
+        oldPrice.text = textStrike(product.price.toString())
         oldPrice.isVisible = product.discount != null
 
         root.setOnClickListener {

@@ -50,8 +50,8 @@ class OrderRepositoryImpl @Inject constructor(
             userInfo = userInfo,
             card = card
         )
-        orderApi.createOrder(request)
         cartStore.clear()
+        orderApi.createOrder(request)
     }
     override fun getOrders(status: Status) = Pager(
         config = PagingConfig(pageSize = 10, prefetchDistance = 20, enablePlaceholders = false),
@@ -82,6 +82,9 @@ class OrderRepositoryImpl @Inject constructor(
     }
 
     override  fun getCard() = cardStore.getFlow().map { it?.toList() ?: emptyList() }
+    override suspend fun clearCards() {
+        cardStore.clear()
+    }
 
 
 }

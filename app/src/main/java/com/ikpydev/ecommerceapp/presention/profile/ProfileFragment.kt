@@ -42,6 +42,11 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(ProfileFragmentBind
             findNavController().navigate(ProfileFragmentDirections.toSingInFragment())
         }
 
+        cardsLayout.setOnClickListener {
+            findNavController().navigate(ProfileFragmentDirections.allCardsFragment())
+        }
+
+
     }
 
 

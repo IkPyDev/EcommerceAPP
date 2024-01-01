@@ -152,4 +152,5 @@
     <string name="add_data_a">Month/Year</string>
     <string name="valid_thru">VALID THRU</string>
     <string name="nul" />
+    <string name="fragment_cads_empty">Cards is empty</string>
 </resources>

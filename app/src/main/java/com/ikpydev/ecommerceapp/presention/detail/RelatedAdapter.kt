@@ -5,10 +5,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.ikpydev.ecommerceapp.R
 import com.ikpydev.ecommerceapp.data.api.product.dto.Product
-import com.ikpydev.ecommerceapp.databinding.ItemProductBinding
 import com.ikpydev.ecommerceapp.databinding.ItemProductRelatedBinding
+import com.ikpydev.ecommerceapp.utils.textStrike
 
 class RelatedAdapter(
     private val product: List<Product>,
@@ -25,11 +24,13 @@ class RelatedAdapter(
 
             val current = product.price - (product.discount ?: 0.0)
 
-            price.text = "$current"
+            price.text = "$$current"
 
 
-            oldPrice.text = "${product.price}"
+            title.text = product.title
+
             oldPrice.isVisible = product.discount != null
+            oldPrice.text = textStrike(product.price.toString())
 
             root.setOnClickListener {
                 onClick(product)
